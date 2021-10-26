@@ -1,0 +1,24 @@
+/* NEWS */
+
+.newstitle 
+{BACKGROUND: white; COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: xx-small;}
+
+.newsbody
+{BACKGROUND: #f7f7f7; COLOR: #5E6263; FONT-FAMILY: verdana; FONT-SIZE: xx-small;}
+
+.newslight
+{BACKGROUND: white; COLOR: #7A8286; FONT-FAMILY: verdana; FONT-SIZE: xx-small;}
+
+.newshighlight
+{COLOR: #C77C00; FONT-FAMILY: verdana; FONT-SIZE: xx-small;}
+
+A.news
+{COLOR: #2B4451; FONT-FAMILY: verdana; FONT-SIZE: xx-small; TEXT-DECORATION: underline}
+A.news:hover
+{COLOR: #2B4451; FONT-FAMILY: verdana; FONT-SIZE: xx-small; TEXT-DECORATION: none}
+A.news:visited
+{COLOR: #2B4451; FONT-FAMILY: verdana; FONT-SIZE: xx-small; TEXT-DECORATION: underline}
+A.news:active
+{COLOR: #FF7800; FONT-FAMILY: verdana; FONT-SIZE: xx-small; TEXT-DECORATION: underline}
+
+/* END NEWS */

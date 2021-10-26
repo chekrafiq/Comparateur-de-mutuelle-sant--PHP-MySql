@@ -1,0 +1,74 @@
+﻿/*-------------------------
+CSS RESET
+--------------------------*/
+
+* { margin: 0; padding: 0; border: none; }
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 13px;
+	color: #727272;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: disc;
+}
+li { margin:0px; padding:0px; line-height: 23px;}
+ol { margin:0px; padding:0px 0px 0px 20px; list-style-type: decimal; }
+li { margin:0px; padding:0px; line-height: 23px; }
+form { display: block; }
+p, pre,
+blockquote, ul, ol, dl, address { font-weight: normal; }
+pre, blockquote, ul, ol, dl, address { margin: 0 0 1em 0; }
+p {
+	margin: 0px;
+	padding: 0px 0px 15px 0px;
+	font-size: 13px;
+	color: #727272;
+	line-height: 21px;
+}
+xmp { padding: 15px; }
+cite, em, dfn { font-style: italic; }
+sup { position: relative; bottom: 0.3em; vertical-align: baseline; }
+sub { position: relative; bottom: -0.2em; vertical-align: baseline; }
+li, dd, blockquote { margin-left: 1em; }
+code, kbd, samp, pre, tt, var, textarea { font-size: 100%; font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; }
+del { text-decoration: line-through; }
+ins, dfn { border-bottom: 1px solid #ccc; }
+small, sup, sub { font-size: 85%; }
+abbr, acronym { text-transform: uppercase; font-size: 85%; letter-spacing: .1em; border-bottom-style: dotted; border-bottom-width: 1px; }
+a abbr, a acronym { border: none; }
+sup { vertical-align: super; }
+sub { vertical-align: sub; }
+
+
+h1 {
+	font-size: 30px;
+	font-weight: normal;
+	color: #272727;
+	padding: 0px;
+	margin: 0px;
+	font-family: georgia, "Times New Roman", Times, serif;
+}
+h2 { font-size: 25px; font-weight: normal; color: #272727; padding: 0px 0px 10px 0px; margin: 0px 0px 0px 0px; }
+h3 { font-size: 21px; font-weight: normal; color: #272727; padding: 0px 0px 10px 0px; margin: 0px 0px 0px 0px;}
+h4 { font-size: 18px; font-weight: bold; color: #272727; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; }
+h5 { font-size: 16px; font-weight: bold; color: #272727; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; }
+h6 { font-size: 14px; font-weight: bold; color: #272727; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; }
+
+
+a, a:link, a:visited {
+	text-decoration: none;
+	color: #333333;
+}
+a:hover {
+	text-decoration: none;
+	color: #287DC7;
+}
+a img { border: none; text-decoration: none; }
+
+img { border: none; text-decoration: none; }
+
+label, button {	cursor: pointer; }
+fieldset { border: none; }

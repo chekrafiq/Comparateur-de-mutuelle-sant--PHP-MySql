@@ -1,0 +1,127 @@
+﻿* {
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	font: 62.5% "Trebuchet MS", sans-serif;
+}
+div#box {
+	border: 1px solid #dcdcdc;
+	width: 420px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	height: auto;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	font-family: georgia, "Times New Roman", Times, serif;
+	position: relative;
+}
+#box h3.h3box {
+	background-color: #000000;
+	height: 30px;
+	font-size: 18px;
+	color: #FFFFFF;
+	padding-left: 25px;
+	line-height: 30px;
+}
+#box h4.boxh4 {
+	color: #323232;
+	background-image: url('../images/right-h3.jpg');
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	width: 288px;
+	height: 30px;
+	background-color: #dcdcdc;
+	padding-left: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	font-family: georgia, "Times New Roman", Times, serif;
+}
+.clear {
+	clear: both;
+}
+form#box legend {
+	font-size: 16px;
+	color: #FF3300;
+	padding-bottom: 20px;
+	font-family: "times New Roman", Times, serif;
+	letter-spacing: 5px;
+}
+form#box fieldset {
+	border-style: none;
+	margin-top: 15px;
+	padding-right: 8px;
+	padding-bottom: 20px;
+	padding-left: 8px;
+}
+form#box fieldset ul li {
+	list-style-type: none;
+	padding-bottom: 8px;
+}
+form#box fieldset ul li label {
+	font-size: 14px;
+	font-weight: bold;
+	width: 210px;
+	float: left;
+}
+form#box fieldset ul li label.exemple {
+	color: #CCCCCC;
+}
+form#box fieldset ul li input.box,form#box fieldset ul li textarea.box {
+	border: 1px solid #939393;
+	padding: 3px;
+	list-style-type: none;
+}
+/*--------- button style v2 ------*/
+form#box input.boximg{
+	position: absolute;
+	bottom: -25px;
+	right: 30px;
+}
+form#box div.resume {
+	margin: 15px auto 15px auto;
+	background-color: #ffd86f;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 370px;
+	padding: 10px;
+}
+form#box div.resume span {
+	color: #FF0000;
+	font-weight: bold;
+	text-decoration: blink;
+}
+form#box div.note {
+	margin: 15px auto 15px auto;
+	background-color: #CCCCCC;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 370px;
+	padding: 10px;
+}
+/*----------------- style for condition general de vente*/
+div#box h5 {
+	margin-bottom:10px;
+	font-family:"Times New Roman", Times, serif;
+	font-size:18px;
+	color:#000;
+	text-align:center;
+	
+}
+
+div#box p {
+	font-family:Tahoma;
+	font-size:12px;
+	margin-bottom:10px;
+	padding-left:10px;
+	padding-right:10px;
+	
+}
+.centerdiv {
+	margin-left:auto;
+	margin-right:auto;
+
+}

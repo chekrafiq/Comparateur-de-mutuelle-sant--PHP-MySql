@@ -1,0 +1,155 @@
+/*----------------------- main ---------------------------*/
+
+body
+{background: white; color: black; font-family: verdana; font-size: 10px; overflow-y:auto;
+scrollbar-face-color: #c7cbd1; scrollbar-highlight-color: #ffffff; scrollbar-shadow-color: #323a4d; 
+scrollbar-3dlight-color: #546075; scrollbar-arrow-color: #546075; scrollbar-track-color: white; 
+scrollbar-darkshadow-color: #546075;}
+
+.main 
+{color: #243f6b; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+.moduletitle
+{color: #323a4d; font-family: georgia; font-size: 18px; font-weight: bold;}
+
+.ptitle
+{color: #243f6b; font-family: verdana; font-size: 12px; text-decoration: underline:}
+
+.list 
+{background: white; color: black; font-family: verdana; font-size: 10px;}
+
+.copyright
+{color: #243f6b; font-family: verdana; font-size: 10px;}
+
+.color1
+{background: #546075; color: white; font-family: arial; font-size: 12px; font-weight: bold; letter-spacing: 1px;}
+
+.color2
+{background: #323a4d; color: white; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+.color3
+{background: #c7cbd1; color: #243f6b; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+.ongletoff
+{background: #c7cbd1; color: #243f6b; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+.ongleton
+{background: #ecdeba; color: #243f6b; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+.listdark
+{background: #c7cbd1; color: #243f6b; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+.listlight
+{background: #d8dbe0; color: #243f6b; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+.listdarksmall
+{background: #c7cbd1; color: #243f6b; font-family: verdana; font-size: xx-small;}
+
+.listlightsmall
+{background: #d8dbe0; color: #243f6b; font-family: verdana; font-size: xx-small;}
+
+.responsegood
+{background: #d8dbe0; color: #243f6b; font-family: verdana; font-size: 10px; font-weight: bolder;}
+
+.warning
+{background: #f49a81; color: #243f6b; font-family: verdana; font-size: 10px; font-weight: bolder;}
+
+.hotwarning
+{background: #d4502c; color: white; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+.admtablinkstitle
+{background: #323a4d; color: white; font-family: verdana; font-size: 12px; font-weight: bold;}
+
+.admtablinks
+{background: #d8dbe0; color: #243f6b; font-family: verdana; font-size: 12px; font-weight: bold;}
+
+.help
+{color: #bold; font-family: trebuchet ms, arial, helvetica; font-size: 10pt;}
+
+.break 
+{page-break-before: always;}
+
+.orange
+{color: #c77c00; font-family: verdana; font-size: 10px; font-weight: bold;}
+
+/*------------------------ end ---------------------------*/
+
+
+
+
+/*---------------------- widget --------------------------*/
+
+.text
+{background-color: #a6b1be; color: #2f3b4c; font-family: verdana; font-size: 10px;}
+
+.text:focus
+{background-color: #d3dae2; color: #2f3b4c; font-family: verdana; font-size: 10px;}
+
+.button
+{background-color: #323a4d; color: white; font-family: verdana; font-size: 10px; font-weight: bold; cursor: hand;
+border-bottom: #a6b1be 1px solid; border-left: #a6b1be 1px solid; border-right: #a6b1be 1px solid; border-top: #a6b1be 1px solid}
+
+textarea
+{background-color: #a6b1be; color: #2f3b4c; font-family: verdana; font-size: 10px; overflow-y: auto;
+scrollbar-face-color: #c7cbd1; scrollbar-highlight-color: #ffffff; scrollbar-shadow-color: #323a4d; 
+scrollbar-3dlight-color: #546075; scrollbar-arrow-color: #546075; scrollbar-track-color: #a6b1be; 
+scrollbar-darkshadow-color: #546075;}
+
+textarea.postit
+{background-color: #ffeb63; color: #631c00; font-family: arial; font-size: 12px; overflow-y: auto;
+scrollbar-face-color: #c7cbd1; scrollbar-highlight-color: #ffffff; scrollbar-shadow-color: #323a4d; 
+scrollbar-3dlight-color: #546075; scrollbar-arrow-color: #546075; scrollbar-track-color: #ffeb63; 
+scrollbar-darkshadow-color: #546075;}
+
+select
+{background-color: #a6b1be; color: #2f3b4c; font-family: verdana; font-size: 10px;}
+
+.selectleft
+{color: #2f3b4c; font-family: verdana; font-size: 10px; background-color: white;}
+
+li
+{color: #2e3033; font-family: verdana;}
+
+/*------------------------ end ---------------------------*/
+
+
+
+
+/*---------------------- link --------------------------*/
+
+a
+{color: #243f6b; font-family: verdana; font-size: 10px; text-decoration: none;}
+a:hover
+{color: #243f6b; font-family: verdana; font-size: 10px; text-decoration: underline;}
+a:visited
+{color: #243f6b; font-family: verdana; font-size: 10px; text-decoration: none;}
+a:active
+{color: #243f6b; font-family: verdana; font-size: 10px; text-decoration: none;}
+
+a.truelink
+{color: #152c52; font-family: verdana; font-size: 10px; text-decoration: underline;}
+a.truelink:hover
+{color: white; font-family: verdana; font-size: 10px; text-decoration: underline;}
+a.truelink:visited
+{color: #243f6b; font-family: verdana; font-size: 10px; text-decoration: underline;}
+a.truelink:active
+{color: #243f6b; font-family: verdana; font-size: 10px; text-decoration: underline;}
+
+a.whitelink
+{color: white; font-family: verdana; font-size: 10px; text-decoration: underline;}
+a.whitelink:hover
+{color: white; font-family: verdana; font-size: 10px; text-decoration: none;}
+a.whitelink:visited
+{color: white; font-family: verdana; font-size: 10px; text-decoration: underline;}
+a.whitelink:active
+{color: white; font-family: verdana; font-size: 10px; text-decoration: none;}
+
+
+a.leftlinks
+{color: #323a4d; font-family: verdana; font-size: 10px; text-decoration: none;}
+a.leftlinks:hover
+{color: #243f6b; font-family: verdana; font-size: 10px; text-decoration: underline;}
+a.leftlinks:visited
+{color: #323a4d; font-family: verdana; font-size: 10px; text-decoration: none;}
+
+/*------------------------ end ---------------------------*/

@@ -1,0 +1,222 @@
+﻿/*-----------tableau de garantie style----------*/
+
+.garantie_t h6 span {
+	color: #808080;
+	font-weight: normal;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.garantie_t h6.retour {
+	padding: 15px;
+	text-align: right;
+}
+
+.garantie_t h6.retour a {
+	text-decoration: none;
+	text-align: right;
+	color: #333333;
+}
+
+.garantie_t h6.retour a:hover {
+	color: #DDB000;
+}
+
+.garantie_t p {
+	padding: 10px;
+	font-family: tahoma;
+	font-size: 12px;
+}
+
+.garantie_t p.description {
+	margin: 10px;
+	border: 1px dashed #CCCCCC;
+	padding: 5px;
+	width: auto;
+}
+
+.garantie_t p.attention {
+	margin: 10px;
+	border: 1px dashed #FF0000;
+	padding: 5px;
+}
+
+.garantie_t table#GR {
+	border-collapse: collapse;
+	border: 1px solid #000000;
+	width: 100%;
+	margin-top: 10px;
+	background-color: #DCDCDC;
+}
+.garantie_t table td {
+	border: 1px solid #FFFFFF;
+	padding: 5px;
+	width: auto;
+	font-family: verdana, Geneva, Tahoma, sans-serif;
+	font-size: 12px;
+}
+.garantie_t table tr.hospi {
+	background-color: #E8F3FF;
+}
+.garantie_t table caption {
+	font-size: 18px;
+	color: #4b94a9;
+	background-color: #FFFFFF;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-transform: uppercase;
+}
+.garantie_t table #footer td {
+	border: 1px solid #FFFFFF;
+	height: 50px;
+	background-color: #ACCAD5;
+	color: #FFFFFF;
+	padding: 5px;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 13px;
+}
+.garantie_t table #garantie td {
+	border: 1px solid #FFFFFF;
+	height: 50px;
+	background-color: #ACCAD5;
+	color: #FFFFFF;
+	padding: 5px;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 13px;
+}
+.auto-style2 {
+	background-color: #EEEED7;
+	text-align: center;
+}
+.auto-style3 {
+	background-color: #F4F4E8;
+	text-align: center;
+}
+.auto-style4 {
+	background-color: #FDFDFD;
+	text-align: center;
+}
+.auto-style5 {
+	background-position: right bottom;
+	background-color: #E8E8C7;
+	text-align: left;
+	background-image: url('../images/right-h3.gif');
+	background-repeat: no-repeat;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+.auto-style6 {
+	background-color: #FBFBF7;
+	text-align: center;
+}
+.auto-style7 {
+	background-color: #66F8FF;
+}
+/* menu table de garantie */
+ul#MG {
+	margin-bottom: 15px;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-left-width: thin;
+}
+ul#MG li {
+	padding: 8px 10px 8px 10px;
+	list-style-type: none;
+	width: auto;
+	float: left;
+	background-color: #333333;
+	height: 28px;
+}
+ul#MG li a {
+	text-decoration: none;
+	font-family: "times New Roman", Times, serif;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+ul#MG li.bl:hover {
+	background-image: url('../images/ulbgb.jpg');
+}
+ul#MG li.bl {
+	background-color: #287dc7;
+	background-image: none;
+}
+ul#MG li.vr:hover {
+	background-image: url('../images/ulbgver.jpg');
+}
+ul#MG li.vr {
+	background-color: #33a02c;
+	background-image: none;
+}
+ul#MG li.ro:hover {
+	background-image: url('../images/bgmenur.jpg');
+}
+ul#MG li.ro {
+	background-color: #fc0019;
+	background-image: none;
+}
+
+ul#MG li.gel:hover {
+	background-image: url('../images/bgmenugel.jpg');
+}
+ul#MG li.gel {
+	background-color: #eabf40;
+	background-image: none;
+}
+/****** Style ***********/
+.border-rond {
+	border-left-color: #000;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+/* box tarif tableu de garantie */
+.boxtarif {
+	width: 108px;
+	height: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: absolute;
+	top: 100px;
+}
+.boxtarif1 {
+	left: 338px;
+	
+}
+.boxtarif2 {
+	left: 450px;
+}
+.boxtarif3 {
+	left: 564px;
+}
+.boxtarif4 {
+	left: 676px;
+}
+.boxtarif5 {
+	left: 788px;
+}
+.boxtarif6 {
+	left: 900px;
+}
+
+.boxtarifprix span {
+	font-size: 20px;
+	color: #32A22B;
+}
+.boxtarifprix span.nom {
+	font-size: 14px;
+	color: #FB011B;
+	font-variant:normal;
+}
+
+.boxtarifprix {
+	padding: 10px 3px 10px 3px;
+	background-color: #e8e8c7;
+	font-weight: bold;
+	text-align: center;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}

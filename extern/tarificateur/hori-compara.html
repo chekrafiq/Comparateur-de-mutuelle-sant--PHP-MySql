@@ -1,0 +1,544 @@
+﻿<?php
+session_start();
+ require_once('Connections/cnx.php'); ?>
+<?php include_once("inclusions/calsses.php");?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+$currentPage = $_SERVER["PHP_SELF"];
+
+
+
+if (!isset($_POST['REGIME']) && !isset($_SESSION["client"])) {
+	header("location: ".$_SERVER['HTTP_REFERER']);
+	exit();
+}//fin si pas formulaire et pas session
+
+if (isset($_POST['REGIME']))
+{
+	$clt=new Client($_POST['NOM'],$_POST['PRENOM']
+							,$_POST['JOUR']."-".$_POST['MOIS']."-".$_POST['ANNEE']
+							,$_POST['ENFANTS'],$_POST['SEXE'],$_POST['COUPLE']
+							,$_POST['REGIME']
+							,substr($_POST['CP'],0,2));
+	
+	if($clt->couple=="couple"){
+		$conj=new Conjoint($_POST['NOMC'],$_POST['PRENOMC'],$_POST['ANNEEC']
+								,($_POST['SEXE']=="homme"?"femme":"homme")
+								,$_POST['REGIMEC']);
+		$clt->conj=$conj;
+	}
+	else
+		$clt->conj=NULL;
+	
+	
+	$_SESSION["client"]=serialize($clt);
+//	$_SESSION["conjoint"]=serialize($clt->conj);
+}//fin si formulaire
+
+
+//recuperation des data sessions
+	$clt=unserialize($_SESSION["client"]);
+//	$clt->conj=unserialize($_SESSION["conjoint"]);
+	
+	$opt=0;
+	$hospi=0;
+	$consul=0;
+	$dent=0;
+if(isset($_POST["slid-opt-input"]))
+{
+	$opt=$_POST["slid-opt-input"];
+	$hospi=$_POST["slid-hospi-input"];
+	$consul=$_POST["slid-consul-input"];
+	$dent=$_POST["slid-dent-input"];
+}
+
+
+mysql_select_db($database_cnx, $cnx);
+$query_rsTarifs = sprintf("SELECT * FROM vw_tarifs 
+						  		WHERE	(%d 				between age_min and age_max)
+					   			and 	departements 	like 	%s
+								and 	nregime		 	in 		(0,%s)
+								and 	sexe 			in		('les deux',%s)
+								and 	couple 			in		('les deux',%s)
+								and 	HOSPITAL		>		$hospi
+								and 	OPTIQUE			>		$opt
+								and 	CONSULTATION	>		$consul
+								and 	DENTAIRE		>		$dent
+								",
+						  GetSQLValueString($clt->getAge(), "int"),
+						  "'%".$clt->cp."%'",
+						  GetSQLValueString($clt->regime, "int"),
+						  GetSQLValueString($clt->sexe, "text"),
+						  GetSQLValueString($clt->couple, "text"));
+
+
+
+
+
+
+
+$rsTarifs = mysql_query($query_rsTarifs, $cnx) or die(mysql_error());
+$row_rsTarifs = mysql_fetch_assoc($rsTarifs);
+
+					
+
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+<style type="text/css">
+* {
+	margin: 0px;
+}
+.grille {
+	width: 620px;
+	height: 490px;
+	float: left;
+	margin-left: 10px;
+	overflow: scroll;
+}
+.grille div {
+	border: 1px solid #e8e8e8;
+	height: 460px;
+	width: 144px;
+	float: left;
+	margin-right: 2px;
+	margin-bottom: 10px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+.grille div:hover {
+	border: 1px solid #000000;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+.grille div h6 {
+	padding: 5px;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	font-family: "times New Roman", Times, serif;
+	font-size: 14px;
+	background-color: #f3f3f3;
+	line-height: 14px;
+	text-align: center;
+}
+.grille div h6.doth {
+	padding: 0px;
+	margin: 0px;
+	font-family: "times New Roman", Times, serif;
+	font-size: 14px;
+	background-color: #fff;
+	line-height: normal;
+	font-weight: normal;
+}
+.grille div h3 {
+	text-align: center;
+}
+.grille div h3 a img {
+	border-style: none;
+	border-width: none;
+}
+.grille div h4 {
+	text-align: center;
+	color: #6b6b6b;
+	font-size: 12px;
+	font-family: verdana, Geneva, Tahoma, sans-serif;
+}
+.grille div h5 {
+	text-align: center;
+	color: #000000;
+	margin-bottom: 4px;
+	font-family: georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.grille div h2.buy {
+	text-align: center;
+	color: #287dc7;
+	margin-bottom: 8px;
+	font-family: georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	font-weight: bold;
+}
+.grille div h2 {
+	text-align: center;
+	color: #e30d0d;
+	margin-bottom: 15px;
+	font-size: 24px;
+}
+.grille div h5 input {
+	padding: 0px;
+	border-style: none !important;
+	width: 130px;
+	height: 33px;
+	font-family: verdana, Geneva, Tahoma, sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 33px;
+	cursor: pointer;
+	background-repeat: repeat-x;
+	border: 0px;
+}
+.grille div h5 input:hover {
+	-webkit-box-shadow: 1px 1px 3px #696969;
+	-moz-box-shadow: 1px 1px 3px #696969;
+	box-shadow: 1px 1px 3px #696969;
+}
+.grille div h5 input.tableaux {
+	background-image: url('Images/btn_tableaux.gif');
+	color: #FFCC00;
+	font-weight: normal;
+	font-size: 12px;
+}
+.grille div h5 input.tableaux:hover {
+	color: #FFDD55;
+}
+.grille div h5 input.autre {
+	background-image: url('Images/btn_souscrire.gif');
+	color: #000000;
+	font-weight: bolder;
+	font-size: 12px;
+}
+#Contenair {
+	width: 816px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#Contenair h1 {
+	color: #fc0019;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 24px;
+	margin-top: 15px;
+	padding-left: 15px;
+}
+#Contenair div.header {
+	background-image: url('img/header-page.jpg');
+	height: 131px;
+}
+#Contenair div.footer {
+	background-image: url('Images/footer.jpg');
+	height: 49px;
+	background-repeat: no-repeat;
+}
+#Contenair div.right {
+	height: 490px;
+	width: 641px;
+	float: left;
+}
+#Contenair div.left {
+	height: auto;
+	width: 161px;
+	float: right;
+	margin-right: 15px;
+}
+#Contenair div.left div#box {
+	height: auto;
+	width: auto;
+	margin-bottom: 15px;
+}
+#Contenair div.left div#box div.middle {
+	height: auto;
+	width: auto;
+	background-image: url('images/middle-boxfilter.jpg');
+	padding-top: 10px;
+	background-repeat: repeat-y;
+}
+#Contenair div.left div#box div.middle select {
+	width: 85%;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	border-style: none;
+	border-width: 0px;
+}
+#Contenair div.left div#box div.middle select.optique {
+	background-color: #297DC8;
+}
+#Contenair div.left div#box div.middle select.Dentair {
+	background-color: #33A02C;
+}
+#Contenair div.left div#box div.middle select.hospi {
+	background-color: #FB0019;
+}
+#Contenair div.left div#box div.bottom {
+	height: 7px;
+	background-image: url('images/bottom-box-filter.jpg');
+}
+.single_news_container {
+	display: none;
+}
+/*  BELLOW IS JUST STYLING, NOT REQUIRED FOR THIS TO WORK  */
+/* just styling */
+/* style the h3 (title) in the news container */
+/* style the navigation div */
+#news_navigation {
+	position: relative;
+	color: #FFFFFF;
+}
+/* style */
+#all_news_container {
+	padding: 10px;
+	color: black;
+	height: 530px;
+}
+/* if you want this app to have a specific width, just make a specific width for wrapper div */
+#wrapper {
+	width: 580px;
+	margin-bottom: 15px;
+	float: left;
+}
+#filter {
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+#filter li {
+	list-style-type: none;
+	width: 50%;
+	float: left;
+	padding-bottom: 4px;
+	text-align: center;
+}
+#filter li label {
+	width: 100%;
+	font-family: georgia, "Times New Roman", Times, serif;
+	font-size: 18px;
+	color: #FC0019;
+}
+#filter li select {
+	width: 100%;
+	margin-bottom: 7px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	color: #333333;
+	font: 16px Arial, Helvetica, sans-serif;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	height: 28px;
+}
+#filter li select.left {
+	float: right;
+	width: 96%;
+}
+</style>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">       
+
+$(document).ready(function(){
+    
+        //show the first signe news container using fadeIn        
+        $('.single_news_container:first').fadeIn(100);
+        /*add news_visible class to the same container 
+        important: this class has no css effects, it's only used so we can know which
+        news container is currently shown '*/
+        $('.single_news_container:first').addClass('news_visible');    
+        
+        //DECLARE VARIABLES WE WILL NEED        
+        var news_No = $('.single_news_container').length; //get number of single news containers
+        var prev_html = '<img border=0 src="images/prev.png" style="vertical-align:middle;position: absolute;top: 250px;left: -8px">'; //the html inside <a>  for previous news
+        var next_html = '<img border=0 src="images/next.png" style="vertical-align:middle;position: absolute;top: 250px;right: -0px">'; //the html inside <a>  for next news
+        
+        //fill the news_navigation container with the navigation html
+        $('#news_navigation').html('<a href="javascript:prev_news();">' + prev_html + '</a> <span style="display: none" id="current_news_num">1</span>/' + news_No +' <a href="javascript:next_news();">' + next_html + '</a>'); 
+        /* explanation: we have - previous link , current news number, / , amount of news, next link
+        so it looks like &lt; 1/5 &gt. As you can see in the href attribute inside our two <a> are 
+        links to function we will declare bellow, so when clicked those functions are called*/
+        
+});
+
+//now we start our functions
+
+function prev_news(){
+        
+            //check if there is a single news container before the current visible container... 
+            if($('.news_visible').prev('.single_news_container').length){
+            
+                //... and if there is we hide the current visible news container by using fadeOut...
+                $('.news_visible').fadeOut(100, function(){
+                    /*...and when the animation ends we have few chain events.
+                    explanation: we first remove the news_visible class from the current visible news container
+                    and apply it to the previous news container, and show that container by using fadeIn()...*/
+                    $('.news_visible').removeClass('news_visible').prev('.single_news_container').addClass('news_visible').fadeIn(100); 
+                    //... then we get the current page number and using parseInt we convert it from text to number (string to integer)...
+                    var current = parseInt($('#current_news_num').text());
+                    //...and change the current page number
+                    $('#current_news_num').text(current - 1);
+                });
+            }    
+            
+}
+
+/*bellow we make a function for next_news. I wont explain it line by line because it's almost the same like the previous function.
+the difference: 
+1) instead of checking if there is previous news (by using prev()) we check if there is by using next()
+2) and in the chained events we change the prev() to next() so we show the next news div  '*/
+function next_news(){
+            if($('.news_visible').next('.single_news_container').length){
+                $('.news_visible').fadeOut(100, function(){
+                    $('.news_visible').removeClass('news_visible').next('.single_news_container').addClass('news_visible').fadeIn(100); 
+                    var current = parseInt($('#current_news_num').text());
+                    $('#current_news_num').text(current + 1);
+                });
+            }  
+}
+
+</script>
+</head>
+
+<body>
+
+<div id="Contenair">
+	<div class="header">
+	</div>
+	<h1>Devis Comparatif Personnalisé</h1>
+	<div style="clear: both">
+	</div>
+	<div style="clear: both">
+	</div>
+	<div class="grille">
+	<?php 
+    do {
+  		
+		$tarif=round($row_rsTarifs['TARIF'],2);
+		if($clt->conj)
+		{
+			$tarifConj=$clt->conj->getTarif($row_rsTarifs['nforumle'],$clt->cp);
+			$tarifConj= round($tarifConj,2);
+		}
+		else
+		{
+			$tarifConj=0;
+		}
+		//sauter si formule non disponible pour le conjoint
+		if($tarifConj==-1) continue;
+		//
+		
+		$tarifEnf=$clt->getTarifEnf($row_rsTarifs['nforumle']);
+		//sauter si formule non disponible pour les enfants
+		if($tarifEnf==-1) continue;
+		//
+		
+		$reduction=$clt->getReduction($row_rsTarifs['NOMCMP']);
+	
+		$suplemNiv1=$clt->getSupplement($row_rsTarifs['NOMCMP']);
+		$suplemNiv2=$clt->getSupplement($row_rsTarifs['NOMCMP'],2);
+		
+		$letarif=($tarif+$tarifConj+$tarifEnf)*$reduction;
+		
+		if($reduction!=0 && $row_rsTarifs['NOMCMP']=="AMIS")//pakah obligatoire si reduction pr amis
+				$letarif+=$clt->couple=="seul"?2:4;
+					//$letarif+=0.87;
+					
+
+   ?>
+		<div>
+			<h6><?php echo htmlentities($row_rsTarifs['NOMFRML']); ?></h6>
+			<h6 class="doth">.........................</h6>
+			<h3><a href="#default">
+			<img alt="les tarifs" src="img/<?php echo $row_rsTarifs['ncomp']; ?>.png" /></a></h3>
+			<h6 class="doth">.........................</h6>
+			<h4>Delai D’attent :</h4>
+			<h5>Aucun</h5>
+			<h4>Hospitalisation :</h4>
+			<h5><?php echo $row_rsTarifs['HOSPITAL']==1000?"frais r&eacute;els":$row_rsTarifs['CONSULTATION']."%"; ?></h5>
+			<h4>Soins Cournts:</h4>
+			<h5>koi mtr ici ?</h5>
+			<h4>Optique</h4>
+			<h5><?php echo $row_rsTarifs['OPTIQUE']; ?> % (<?php echo $row_rsTarifs['FORFAIT_OPTIQUE']; ?>&euro;/an)</h5>
+			<h2 class="buy"><?php 
+				  echo round($letarif,2);
+				  ?> <span>€</span></h2>
+			<h5>
+			<input class="tableaux" name="pdf" type="button" value="Tableaux de garantie" /></h5>
+			<h5>
+			<input class="autre" name="pdf" type="button" value="Souscrire en ligne" /></h5>
+			<h5>
+			<input class="autre" name="pdf" type="button" value="Recevoir le Devis" /></h5>
+			<h5>
+			<input class="autre" name="pdf" type="button" value="Contacter Nous" /></h5>
+		</div>
+		
+	</div>
+	<?php } while ($row_rsTarifs = mysql_fetch_assoc($rsTarifs)); ?>
+	<div class="left">
+		<div id="box">
+			<div>
+				<img alt="image for box" src="images/Header-box-filter.jpg" /></div>
+			<div class="middle">
+				<select name="Select1">
+				<option>Besoin Optique</option>
+				</select><select name="Select1">
+				<option>Besoin Dentair</option>
+				</select><select name="Select1">
+				<option>Besoin Hospi</option>
+				</select><select name="Select1">
+				<option>Besoin Matherni</option>
+				</select><select name="Select1">
+				<option>Filter par company</option>
+				</select><select name="Select1">
+				<option>Filter par budget</option>
+				</select></div>
+			<div class="bottom">
+			</div>
+		</div>
+		<img alt="info" src="images/page-5-assursante-2-copy_17.jpg" />
+		<div id="box">
+		</div>
+	</div>
+	<div style="clear: both">
+	</div>
+	<div class="footer">
+	</div>
+</div>
+ <input class="slider-input" id="slid-hospi-input"
+                  name="slid-hospi-input"/>
+				   <input class="slider-input" id="slid-consul-input"
+                      name="slid-consul-input"/>
+					  <input class="slider-input" id="slid-opt-input"
+                      name="slid-opt-input"/>
+					  <input class="slider-input" id="slid-dent-input"
+                      name="slid-dent-input"/>
+</body>
+
+</html>

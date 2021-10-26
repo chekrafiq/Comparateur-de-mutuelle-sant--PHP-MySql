@@ -1,0 +1,60 @@
+LoadModule php4_module        modules/libphp4.so
+AddModule mod_php4.c
+AddType application/x-httpd-php .php .php4 .php3
+LoadModule php4_module        lib/apache/libphp4.so
+
+<VirtualHost 192.168.0.52>
+
+    ServerAdmin inerd@192.168.0.52
+    DocumentRoot /var/web/untoutpetitmonde/www
+    ServerName 192.168.0.52
+    ScriptAlias /cgi-bin /var/web/untoutpetitmonde/www/cgi-bin
+    
+    ErrorDocument 500 http://192.168.0.52/extern/error.php3
+    ErrorDocument 404 http://192.168.0.52/extern/error.php3
+    ErrorDocument 401 http://192.168.0.52/extern/error.php3
+    ErrorDocument 403 http://192.168.0.52/extern/error.php3
+
+    <IfModule mod_php4.c>
+     php_admin_flag engine on
+     php_admin_value doc_root /var/web/untoutpetitmonde/www
+     php_admin_value include_path .:/var/web/untoutpetitmonde/www
+     php_admin_value user_dir /var/web/untoutpetitmonde/www
+    </IfModule>
+
+   <Directory "/var/web/untoutpetitmonde/www/wisewww/modules/*/adm/sub">
+    deny from all
+   </Directory>
+   <Directory "/var/web/untoutpetitmonde/www/wisewww/modules/*/sub">
+    deny from all
+   </Directory>
+   <Files
+    "/var/web/untoutpetitmonde/www/wisewww/modules/*/adm/main.inc.php3">
+    deny from all
+   </Files>
+   <Files
+    "/var/web/untoutpetitmonde/www/wisewww/modules/*/adm/default.inc.php3">
+    deny from all
+   </Files>
+   <Files "/var/web/untoutpetitmonde/www/wisewww/var.inc.php3">
+    deny from all
+   </Files>
+   <Directory "/var/web/untoutpetitmonde/www/wisewww/bin">
+    deny from all
+   </Directory>
+   <Directory "/var/web/untoutpetitmonde/www/wisewww/doc">
+    deny from all
+   </Directory>
+   <Directory "/var/web/untoutpetitmonde/www/wisewww/display">
+    deny from all
+   </Directory>
+   <Directory "/var/web/untoutpetitmonde/www/wisewww/design">
+    deny from all
+   </Directory>
+   <Files "/var/web/untoutpetitmonde/www/wisewww/skins/*.inc">
+    deny from all
+   </Files>
+   
+#    CustomLog /var/web/untoutpetitmonde/www/logs/access_log combined
+
+</VirtualHost>

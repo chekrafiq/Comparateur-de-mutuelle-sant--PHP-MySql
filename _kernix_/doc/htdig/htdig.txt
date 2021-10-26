@@ -1,0 +1,26 @@
+./configure --prefix=/var/web/opt/htdig
+--with-cgi-bin-dir=/var/web/opt/htdig/cgi-bin
+--with-search-dir=/var/web/opt/htdig/form
+--with-image-dir=/var/web/opt/htdig/images
+
+<META NAME="htdig-keywords" CONTENT="phone telephone online electronicdirectory">
+
+<META NAME="htdig-noindex" CONTENT="">
+
+
+pour recompiler mettre les *.cc ds htsearch puis make
+
+pb :
+
+- htsearch ne renvoie rien : 1- verifier que c bien recompile (RH6.* et 7.* st differents !!), 2- bouger htsearch ds bin de KWO
+
+
+modif de Display.cc
+===================
+
+Fonction createURL
+- on remplace les ',' par des '&'
+- on ajoute 
+url << "page=" << pageNumber << '&';
+url << "p_fromref=" << input->get("p_fromref") << '&';
+url << "p_idref=0&p_zeroaction=search";

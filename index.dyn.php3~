@@ -1,0 +1,66 @@
+<?php
+	$p_idref=$_GET['p_idref'];
+	$domain="http://www.assursante.fr/";		
+		
+		// Permanent redirection
+		   header("HTTP/1.1 301 Moved Permanently");
+
+			if($p_idref==18)
+			$lien=''.$domain.'compagnie-assurances/swisslife/swiss-sante.php';
+			else if ( $p_idref==22 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/confort-hospi.php';
+			elseif ( $p_idref==32 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/swiss-protection.php';
+			elseif ($p_idref==56 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/garantie-accidents-vie.php';
+			elseif ( $p_idref==169 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/mutuelle-swissLife.php';
+			elseif ( $p_idref==171 )
+			$lien=''.$domain.'parrainage.php';
+			elseif ( $p_idref==23 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/habitation-assurance.php';
+			elseif ( $p_idref==24 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/suisse-avenir.php';
+			elseif ( $p_idref==85 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/swissLife-retraite.php';
+			elseif ( $p_idref==91 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/retraite-independant.php';
+			elseif ( $p_idref==97 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/swissLife-liberte.php';
+			elseif ( $p_idref==103 )
+			$lien=''.$domain.'compagnie-assurances/swisslife/suisse-obseques.php';
+			elseif ( $p_idref==172 )
+			$lien=''.$domain.'complementaire-sante.html';
+			elseif ( $p_idref==9 )
+			$lien=''.$domain.'actualites.php';
+			elseif ( $p_idref==10 )
+			$lien=''.$domain.'newsletter.php';
+			elseif ( $p_idref==11 )
+			$lien=''.$domain.'plan.php';
+			elseif ( $p_idref==12 )
+			$lien=''.$domain.'contact.php';
+			elseif ( $p_idref==157 )
+			$lien=''.$domain.'telephone.php';
+			elseif ( $p_idref==13 )
+			$lien=''.$domain.'propos.php';
+			elseif ( $p_idref==152 )
+			$lien=''.$domain.'glossaire.php';
+			elseif ( $p_idref==14 )
+			$lien=''.$domain.'mention-legale.php';
+			elseif ( $p_idref==15 )
+			$lien=''.$domain.'charte_de_confidentialite.php';
+			elseif ( $p_idref==168 )
+			$lien=''.$domain.'guide_mutuelle.php';
+			elseif ( $p_idref==170 )
+			$lien='http://www.assursante.fr/';
+			else
+			$lien=''.$domain.''.'pages_404.php';
+
+ 
+		
+		header("Location: $lien");
+
+ 			
+
+
+?>

@@ -1,0 +1,45 @@
+#!/usr/bin/perl
+
+use CGI;
+use CMSSL;
+use DBI();
+
+# Positionnement de CMKEYDIR:
+$ENV{"CMKEYDIR"} = "./cles/";
+
+$mailprog = '/usr/lib/sendmail';
+#$l_email = "fmetayer\@inerd.fr";
+
+# Recuperation des donnees
+$form           = new CGI;
+$TPE            = $form->param('TPE');
+$date           = $form->param('date');
+$montant        = $form->param('montant');
+$reference      = $form->param('reference');
+$MAC            = $form->param('MAC');
+$texte_libre    = $form->param('texte-libre');
+$code_retour    = $form->param('code-retour');
+
+$ok = CMSSL::TestMAC ($MAC,"1.2",$TPE,$date,$montant,$reference,$texte_libre,$code_retour);
+
+if ($ok == 1)
+{
+    $dbh = DBI->connect("DBI:mysql:database=$texte_libre;host=localhost", "root", "contrex", {'RaiseError' => 1});    
+    $request = ("update command set status = 3 where idcommand = '$reference'");
+    $dbh->do($request);
+    $dbh->disconnect();
+  
+  CMSSL::CreerReponseCM("OK");
+
+}
+else            { CMSSL::CreerReponseCM("Document Falsifii".$form->param('texte-libre')); }
+
+## SI VOUS LE SOUHAITEZ, INSEREZ VOS TRAITEMENTS SPECIFIQUES ICI
+
+
+exit(0);
+
+
+
+
+

@@ -1,0 +1,11 @@
+BODY
+{backgroiund-color: white; font-family: verdana; color: black; font-size: 10px;}
+
+A
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:hover
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A:visited
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:active
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}

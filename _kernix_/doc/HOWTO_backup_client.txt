@@ -1,0 +1,12 @@
+DATAS à sauvegarder :
+---------------------
+
+- /pictures
+- /upload
+- /mysql
+- /kernix/conf
+- /kernix/design
+- /kernix/display
+- /kernix/skins
+- /kernix/var.inc.php3
+

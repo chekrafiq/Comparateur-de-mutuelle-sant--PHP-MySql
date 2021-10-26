@@ -1,0 +1,156 @@
+#! /bin/sh
+
+
+#----------------------------------------------------------------------------
+# Topic	  : Exemple SHELL de traitement de la reponse automatique de paiement
+# Version : 500
+#
+# 	Dans cet exemple, les données de la transaction	sont
+#	décryptées et sauvegardées dans un fichier log.
+#
+#----------------------------------------------------------------------------
+
+
+#--------------------------------------------------------------------------
+#	Fonction get_data_field : récupération de la variable cryptée DATA
+#--------------------------------------------------------------------------
+#
+
+get_data_field ()
+{
+	# Récupération de la variable cryptée DATA
+
+	if [ "$REQUEST_METHOD" = "POST" ] ; then
+		VAR=`dd count=$CONTENT_LENGTH bs=1 2> /dev/null`
+		DATA=`echo  $VAR | awk ' BEGIN {FS="&"} {print $1}'| awk ' BEGIN {FS="="} {print $2}'`
+
+	else
+		DATA=`echo  $QUERY_STRING | awk ' BEGIN {FS="="} {print $2}'`
+
+	fi
+
+	message="message=$DATA"
+	
+}
+
+
+	# Récupération de la variable cryptée DATA
+
+	get_data_field
+	
+    # Initialisation du chemin du fichier pathfile (à modifier)
+    #   ex :	pathfile="pathfile=/home/repertoire/pathfile"
+    #
+    # Cette variable est facultative. Si elle n'est pas renseignée,
+    # l'API positionne la valeur à "./pathfile".
+
+	#	pathfile="pathfile=chemin_du_fichier_pathfile"
+
+	# Initialisation du chemin de l'executable response (à modifier)
+	# ex :	path_bin="/home/repertoire/bin/response"
+	#
+
+	path_bin="chemin_de_l'executable_response"
+
+	#  Appel du binaire response
+	
+	result=`$path_bin $message`
+
+	#  Sortie de la fonction : !code!error!v1!v2!v3!...!v29
+	#  - code=0	: la fonction retourne les données de la transaction dans les variables v1, v2, ...
+			  Ces variables sont décrites dans le GUIDE DU PROGRAMMEUR
+	#  - code=-1 	: La fonction retourne un message d'erreur dans la variable error
+   
+	# on separe les differents champs
+
+	code=`echo  $result | awk ' BEGIN {FS="!"} {print $2}'`
+	error=`echo $result | awk ' BEGIN {FS="!"} {print $3}'`
+	merchant_id=`echo  $result | awk ' BEGIN {FS="!"} {print $4}'`
+	merchant_country=`echo  $result | awk ' BEGIN {FS="!"} {print $5}'`
+	amount=`echo  $result | awk ' BEGIN {FS="!"} {print $6}'`
+	transaction_id=`echo  $result | awk ' BEGIN {FS="!"} {print $7}'`
+	payment_means=`echo  $result | awk ' BEGIN {FS="!"} {print $8}'`
+	transmission_date=`echo  $result | awk ' BEGIN {FS="!"} {print $9}'`
+	payment_time=`echo  $result | awk ' BEGIN {FS="!"} {print $10}'`
+	payment_date=`echo  $result | awk ' BEGIN {FS="!"} {print $11}'`
+	response_code=`echo  $result | awk ' BEGIN {FS="!"} {print $12}'`
+	payment_certificate=`echo  $result | awk ' BEGIN {FS="!"} {print $13}'`
+	authorisation_id=`echo  $result | awk ' BEGIN {FS="!"} {print $14}'`
+	currency_code=`echo  $result | awk ' BEGIN {FS="!"} {print $15}'`
+	card_number=`echo  $result | awk ' BEGIN {FS="!"} {print $16}'`
+	cvv_flag=`echo  $result | awk ' BEGIN {FS="!"} {print $17}'`
+	cvv_response_code=`echo  $result | awk ' BEGIN {FS="!"} {print $18}'`
+	bank_response_code=`echo  $result | awk ' BEGIN {FS="!"} {print $19}'`
+	complementary_code=`echo  $result | awk ' BEGIN {FS="!"} {print $20}'`
+	return_context=`echo  $result | awk ' BEGIN {FS="!"} {print $21}'`
+	caddie=`echo  $result | awk ' BEGIN {FS="!"} {print $22}'`
+	receipt_complement=`echo  $result | awk ' BEGIN {FS="!"} {print $23}'`
+	merchant_language=`echo  $result | awk ' BEGIN {FS="!"} {print $24}'`
+	language=`echo  $result | awk ' BEGIN {FS="!"} {print $25}'`
+	customer_id=`echo  $result | awk ' BEGIN {FS="!"} {print $26}'`
+	order_id=`echo  $result | awk ' BEGIN {FS="!"} {print $27}'`
+	customer_email=`echo  $result | awk ' BEGIN {FS="!"} {print $28}'`
+	customer_ip_address=`echo  $result | awk ' BEGIN {FS="!"} {print $29}'`
+	capture_day=`echo  $result | awk ' BEGIN {FS="!"} {print $30}'`
+	capture_mode=`echo  $result | awk ' BEGIN {FS="!"} {print $31}'`
+	data=`echo  $result | awk ' BEGIN {FS="!"} {print $32}'`
+
+	# Initialisation du chemin du fichier de log (à modifier)
+	# ex :	logfile="/home/repertoire/log/logfile.txt"
+
+	logfile="chemin_du_fichier_de_log"
+
+	#  analyse du code retour
+	
+	if [ "$code" = "" -a "$error" = "" ] ; then
+  	echo "erreur appel response\n" >> $logfile
+  	echo "executable response non trouve $path_bin\n" >> $logfile
+  	
+  	# Erreur, écriture du message d'erreur dans le fichier log
+  	
+	else
+		if [ "$code" -eq "-1" ] ; then
+		echo "Erreur appel API de paiement.\n" >> $logfile
+		echo " message erreur : $error \n" >> $logfile
+		
+		# OK, écriture des champs de la réponse dans le fichier log
+		
+		else
+
+		echo "merchant_id : $merchant_id" >> $logfile
+		echo "merchant_country : $merchant_country" >> $logfile
+		echo "amount : $amount" >> $logfile
+		echo "transaction_id : $transaction_id" >> $logfile
+		echo "payment_means : $payment_means" >> $logfile
+		echo "transmission_date : $transmission_date" >> $logfile
+		echo "payment_time : $payment_time" >> $logfile
+		echo "payment_date : $payment_date" >> $logfile
+		echo "response_code : $response_code" >> $logfile
+		echo "payment_certificate : $payment_certificate" >> $logfile
+		echo "authorisation_id : $authorisation_id" >> $logfile
+		echo "currency_code : $currency_code" >> $logfile
+		echo "card_number : $card_number" >> $logfile
+		echo "cvv_flag : $cvv_flag" >> $logfile
+		echo "cvv_response_code : $cvv_response_code" >> $logfile
+		echo "bank_response_code : $bank_response_code" >> $logfile
+		echo "complementary_code : $complementary_code" >> $logfile
+		echo "return_context : $return_context" >> $logfile
+		echo "caddie : $caddie" >> $logfile
+		echo "receipt_complement : $receipt_complement" >> $logfile
+		echo "merchant_language : $merchant_language" >> $logfile
+		echo "language : $language" >> $logfile
+		echo "customer_id : $customer_id" >> $logfile
+		echo "order_id : $order_id" >> $logfile
+		echo "customer_email : $customer_email" >> $logfile
+		echo "customer_ip_address : $customer_ip_address" >> $logfile
+		echo "capture_day : $capture_day" >> $logfile
+		echo "capture_mode : $capture_mode" >> $logfile
+		echo "data : $data" >> $logfile
+		echo "---------------------------------------" >> $logfile
+
+		fi
+	
+	fi
+
+# End of file
+

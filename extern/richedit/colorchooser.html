@@ -1,0 +1,269 @@
+<!--
+#################################################################################
+##
+## HTML Text Editing Component for hosting in Web Pages
+## Copyright (C) 2001  Ramesys (Contracting Services) Limited
+## 
+## This library is free software; you can redistribute it and/or
+## modify it under the terms of the GNU Lesser General Public
+## License as published by the Free Software Foundation; either
+## version 2.1 of the License, or (at your option) any later version.
+##
+## This library is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+## Lesser General Public License for more details.
+##
+## You should have received a copy of the GNU LesserGeneral Public License
+## along with this program; if not a copy can be obtained from 
+##
+##    http://www.gnu.org/copyleft/lesser.html
+##
+## or by writing to:
+##
+##    Free Software Foundation, Inc.
+##    59 Temple Place - Suite 330,
+##    Boston,
+##    MA  02111-1307,
+##    USA.
+## 
+## Original Developer:
+##
+##	Austin David France
+##	Ramesys (Contracting Services) Limited
+##	Mentor House
+##	Ainsworth Street
+##	Blackburn
+##	Lancashire
+##	BB1 6AY
+##	United Kingdom
+##  email: Austin.France@Ramesys.com
+##
+## Home Page:    http://richtext.sourceforge.net/
+## Support:      http://richtext.sourceforge.net/
+## 
+#################################################################################
+-->
+<html>
+<head>
+<meta name=vs_targetSchema content="HTML 4.0">
+<meta name="GENERATOR" content="Microsoft Visual Studio 7.0">
+<style type="text/css">
+TABLE.colorChooser { background-color: buttonface; border:0; }
+.colorChooser TD { border: 2px inset buttonface; cursor: hand; }
+.colorChooserLabel TD { width: 100%; border: 0;
+	font-family: "MS Sans Serif"; font-size: xx-small; vertical-align: middle;
+}
+TD.colorNone { font-family: "MS Sans Serif"; font-size: xx-small; vertical-align: middle; 
+				text-align: center; border: 2px outset buttonface!important; }
+</style>
+</head>
+
+<body topmargin="0" leftmargin="0" style="border: 0; margin: 0;">
+<script language="JavaScript">
+var public_description = new ColorMenu();
+
+function ColorMenu() {
+}
+
+function hover(on) {
+	var el = window.event.srcElement;
+	if (el && el.nodeName == "IMG") {
+		if (on) {
+			el.parentElement.style.border = '2px solid black';
+		} else {
+			el.parentElement.style.border = '2px inset buttonface';
+		}
+	}
+}
+function choose(on) {
+	var el = window.event.srcElement;
+	if (el && el.nodeName == "IMG") {
+		window.external.raiseEvent("onselect", el.parentElement.title);
+	}
+	if (el && el.nodeName == "TD") {
+		window.external.raiseEvent("onselect", null);
+	}
+}
+</script>
+<table class="colorChooser" cellpadding="0" cellspacing="2" onmouseover="hover(true)" onmouseout="hover(false)" onclick="choose()">
+<tr class="colorChooserLabel"><td colspan="16">Standard Colors</td></tr>
+<tr>
+<td bgcolor="Green" title="Green"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Lime" title="Lime"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Teal" title="Teal"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Aqua" title="Aqua"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Navy" title="Navy"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Blue" title="Blue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Purple" title="Purple"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Fuchsia" title="Fuchsia"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Maroon" title="Maroon"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Red" title="Red"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Olive" title="Olive"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Yellow" title="Yellow"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="White" title="White"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Silver" title="Silver"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Gray" title="Gray"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Black" title="Black"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr class="colorChooserLabel"><td colspan="16">Gray Scale</td></tr>
+<tr>
+<td bgcolor="#101010"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#202020"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#303030"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#404040"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#505050"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#606060"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#707070"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#808080"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#909090"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#A0A0A0"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#B0B0B0"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#C0C0C0"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#D0D0D0"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#E0E0E0"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="#F0F0F0"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr class="colorChooserLabel"><td colspan="16">Additional</td></tr>
+<tr>
+<td bgcolor="DarkOliveGreen" title="DarkOliveGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkGreen" title="DarkGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkSlateGray" title="DarkSlateGray"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="SlateGray" title="SlateGray"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkBlue" title="DarkBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MidnightBlue" title="MidnightBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Indigo" title="Indigo"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkMagenta" title="DarkMagenta"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Brown" title="Brown"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkRed" title="DarkRed"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Sienna" title="Sienna"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="SaddleBrown" title="SaddleBrown"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkGoldenrod" title="DarkGoldenrod"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Beige" title="Beige"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Honeydew" title="Honeydew"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DimGray" title="DimGray"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr>
+<td bgcolor="OliveDrab" title="OliveDrab"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="ForestGreen" title="ForestGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkCyan" title="DarkCyan"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightSlateGray" title="LightSlateGray"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumBlue" title="MediumBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkSlateBlue" title="DarkSlateBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkViolet" title="DarkViolet"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumVioletRed" title="MediumVioletRed"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="IndianRed" title="IndianRed"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Firebrick" title="Firebrick"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Chocolate" title="Chocolate"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Peru" title="Peru"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Goldenrod" title="Goldenrod"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightGoldenrodYellow" title="LightGoldenrodYellow"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MintCream" title="MintCream"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkGray" title="DarkGray"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr>
+<td bgcolor="YellowGreen" title="YellowGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="SeaGreen" title="SeaGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="CadetBlue" title="CadetBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="SteelBlue" title="SteelBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="RoyalBlue" title="RoyalBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="BlueViolet" title="BlueViolet"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkOrchid" title="DarkOrchid"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DeepPink" title="DeepPink"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="RosyBrown" title="RosyBrown"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Crimson" title="Crimson"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkOrange" title="DarkOrange"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Burlywood" title="Burlywood"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkKhaki" title="DarkKhaki"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightYellow" title="LightYellow"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Azure" title="Azure"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightGrey" title="LightGrey"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr>
+<td bgcolor="LawnGreen" title="LawnGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumSeaGreen" title="MediumSeaGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightSeaGreen" title="LightSeaGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DeepSkyBlue" title="DeepSkyBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DodgerBlue" title="DodgerBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="SlateBlue" title="SlateBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumOrchid" title="MediumOrchid"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="PaleVioletRed" title="PaleVioletRed"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Salmon" title="Salmon"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="OrangeRed" title="OrangeRed"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="SandyBrown" title="SandyBrown"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Tan" title="Tan"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Gold" title="Gold"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Ivory" title="Ivory"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="GhostWhite" title="GhostWhite"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Gainsboro" title="Gainsboro"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr>
+<td bgcolor="Chartreuse" title="Chartreuse"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LimeGreen" title="LimeGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumAquamarine" title="MediumAquamarine"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkTurquoise" title="DarkTurquoise"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="CornflowerBlue" title="CornflowerBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumSlateBlue" title="MediumSlateBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Orchid" title="Orchid"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="HotPink" title="HotPink"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightCoral" title="LightCoral"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Tomato" title="Tomato"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Orange" title="Orange"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Bisque" title="Bisque"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Khaki" title="Khaki"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Cornsilk" title="Cornsilk"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Linen" title="Linen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="WhiteSmoke" title="WhiteSmoke"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr>
+<td bgcolor="GreenYellow" title="GreenYellow"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkSeaGreen" title="DarkSeaGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Turquoise" title="Turquoise"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumTurquoise" title="MediumTurquoise"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="SkyBlue" title="SkyBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumPurple" title="MediumPurple"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Violet" title="Violet"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightPink" title="LightPink"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="DarkSalmon" title="DarkSalmon"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Coral" title="Coral"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="NavajoWhite" title="NavajoWhite"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="BlanchedAlmond" title="BlanchedAlmond"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="PaleGoldenrod" title="PaleGoldenrod"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Oldlace" title="Oldlace"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Seashell" title="Seashell"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="GhostWhite" title="GhostWhite"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr>
+<td bgcolor="PaleGreen" title="PaleGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="SpringGreen" title="SpringGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Aquamarine" title="Aquamarine"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="PowderBlue" title="PowderBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightSkyBlue" title="LightSkyBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightSteelBlue" title="LightSteelBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Plum" title="Plum"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Pink" title="Pink"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightSalmon" title="LightSalmon"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Wheat" title="Wheat"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Moccasin" title="Moccasin"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="AntiqueWhite" title="AntiqueWhite"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LemonChiffon" title="LemonChiffon"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="FloralWhite" title="FloralWhite"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Snow" title="Snow"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="AliceBlue" title="AliceBlue"><img src="spacer.gif" width="12" height="12"></td>
+</tr>
+<tr>
+<td bgcolor="LightGreen" title="LightGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MediumSpringGreen" title="MediumSpringGreen"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="PaleTurquoise" title="PaleTurquoise"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightCyan" title="LightCyan"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="LightBlue" title="LightBlue"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Lavender" title="Lavender"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Thistle" title="Thistle"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="MistyRose" title="MistyRose"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="Peachpuff" title="Peachpuff"><img src="spacer.gif" width="12" height="12"></td>
+<td bgcolor="PapayaWhip" title="PapayaWhip"><img src="spacer.gif" width="12" height="12"></td>
+<td colspan="6" class="colorNone" title="None">None</td>
+</tr>
+</table>
+</body>
+</html>

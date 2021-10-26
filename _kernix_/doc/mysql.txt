@@ -1,0 +1,15 @@
+pour repartir à l'id ref = 3 :
+myisamchk --set-auto-increment=3 ref.MYI
+
+-------------------------------------------------
+lors de l'intall de mysql:
+INSERT INTO db VALUES( 'localhost', 'utpm', 'untoutpetitmonde', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
+INSERT INTO user VALUES( 'localhost', 'untoutpetitmonde', '1097f85d22aac928', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N');
+
+
+ERREUR avec socket :
+- il est necessaire de recompiler MySQL
+- ou php.ini :
+mysql.allow_persistent = On
+mysql.default_host = "localhost"
+mysql.default_socket = "/var/lib/mysql/mysql.sock"

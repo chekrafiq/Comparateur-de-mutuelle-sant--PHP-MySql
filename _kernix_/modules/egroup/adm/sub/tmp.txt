@@ -1,0 +1,19 @@
+$l_text .= "\n<html>";
+  $l_text .= "<body bgcolor=white text=black>";
+  $l_text .= "<table width=80% height=100% align=center><tr><td style=\"font-family: Verdana, Arial, Helvetica, sans-serif, font-size: 8pt, color=black\" valign=top>"; 
+  $l_text .= "<b>$g_sitename</b> : <a href=$p_urltarget?p_idmailing=$l_idmailing>$p_urltarget</a><hr noshade>";
+  $p_body = ereg_replace("\n","<br>", $p_body);
+  $l_text .= "$p_body";
+  $l_text .=  "<br>";
+  if ($p_signatureflag == "yes")
+  {
+    $l_signature = ereg_replace("\n","<br>", $l_signature);
+    $l_text .= "<br>$l_signature";
+  }
+  $l_text .=  "</td></tr></table>";
+  if ($p_unsuscribeflag == "yes")
+  {
+    $l_text .= "<br><br><br><hr noshade>pour vous desisncrire, clickez <a href=\"$g_clientadminpage\">ici</a>";
+  }
+  if ($g_pubflag == 1) {$l_text .= "$g_pubmsg";}
+  $l_text .= "</body></html>\n";

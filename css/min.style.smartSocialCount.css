@@ -1,0 +1,115 @@
+﻿#socialbar {
+	list-style: none outside none;
+	margin: 0;
+	padding: 0px;
+}
+
+#socialbar ul {
+	margin: 0;
+	padding: 0;
+	min-width: 510px;
+	min-height: 100px;
+}
+#pageshare ul li.sbutton, #socialbar ul li.sbutton {
+	display: block;
+	float: left;
+	padding-right: 0;
+	padding-left: 5px;
+	padding-top: 5px;
+	min-height: 65px;
+	margin-bottom: 0px;
+	width: 60px;
+	margin-left:0px;
+	margin-right:0px;
+}
+#pageshare ul li.sbutton {
+	clear: both;
+	float: left;
+	margin: 0px 0px 0 0px;
+	padding: 0px 5px 3px 5px;
+	width: 55px;
+}
+#pageshare ul li.sbutton-gap, #socialbar ul li.sbutton-gap {
+	display: block;
+	float: left;
+	padding-right: 0px;
+	border: 1px solid #FFF;
+}
+#pageshare ul li.sbutton a.emailshare, #socialbar ul li.sbutton a.emailshare {
+	background: url("../js/images/email.png") no-repeat scroll 50% 0 transparent;
+	color: #fff;
+	display: inline-block;
+	font-size: 12px;
+	height: 20px;
+	padding: 46px 0 0;
+	text-align: center;
+	text-decoration: none;
+	width: 51px;
+}
+#pageshare {
+	float: left;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 0 0 0 0;
+	z-index: 1;
+	width: 83px;
+}
+#pageshare .sbutton:hover, #socialbar ul li.sbutton {
+	border-right-color: #9E9E9E;
+	border-bottom-color: #9E9E9E;
+	border-left-color: #9E9E9E;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+#pageshare .sbutton, #socialbar ul li.sbutton:hover {
+	border-right-color: #FB0019;
+	border-bottom-color: #FB0019;
+	border-left-color: #FB0019;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+.fb_share_count_top {
+	width: 48px!important;
+}
+.fb_share_count_top, .fb_share_count_inner {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.FBConnectButton_Small, .FBConnectButton_RTL_Small {
+	width: 49px!important;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.FBConnectButton_Small .FBConnectButton_Text {
+	padding: 2px 2px 3px!important;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	font-size: 8px;
+}
+#developed_by {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: .9em;
+	color: #339;
+	text-shadow: 2px 2px 2px #000;
+}
+a.smart-link {
+	text-decoration: none;
+	color: #009;
+}
+a.smart-link:hover {
+	color: #FFF;
+	background-color: #630;
+}
+.fb_share_count_wrapper {
+	margin-left: 3px;
+}
+

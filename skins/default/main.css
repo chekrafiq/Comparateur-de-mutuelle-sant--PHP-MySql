@@ -1,0 +1,142 @@
+/*----------------------- MAIN ---------------------------*/
+
+BODY
+{BACKGROUND-IMAGE: url("/upload/pictures/background.gif"); COLOR: #092431; FONT-FAMILY: verdana; FONT-SIZE: 10px;SCROLLBAR-TRACK-COLOR: #DEDDD9; overflow-y:auto;}
+
+.body
+{BACKGROUND-COLOR: #DEDDD9; COLOR: #092431; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+/* #072838 */
+
+.empty
+{BACKGROUND-IMAGE: url("/pictures/empty.gif"); COLOR: #465B66; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.main
+{BACKGROUND-COLOR: white; COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.copyright
+{COLOR: #072838; FONT-FAMILY: Verdana; FONT-SIZE: 10px;}
+
+/*----------------------- END MAIN ---------------------------*/
+
+
+
+/*----------------------- SPECIFIC ---------------------------*/
+
+li
+{BACKGROUND-IMAGE: url("/upload/pictures/background_defaultright.gif"); COLOR: #465B66; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.maindefault
+{BACKGROUND-IMAGE: url("/upload/pictures/background_defaultright.gif"); COLOR: #465B66; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.leftdefault
+{BACKGROUND-COLOR: #F4F3F1; COLOR: #74726E; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.mainhome
+{BACKGROUND-COLOR: #788A93; COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; FONT-WEIGHT: bold;}
+
+.mainempty
+{COLOR: #092431; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.news
+{BACKGROUND-COLOR: white; COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.top
+{BACKGROUND-COLOR: #021B28; COLOR: #000080; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.bottom
+{BACKGROUND-COLOR: #D6D9DB; COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.title
+{COLOR: #021B28; FONT-FAMILY: verdana; FONT-SIZE: 14pt; FONT-WEIGHT: bold;}
+
+H1
+{COLOR: #021B28; FONT-FAMILY: "Arial Narrow", "Arial", sans-serif; FONT-SIZE: 1.6em; FONT-WEIGHT: bold;}
+
+.rubrique
+{BACKGROUND-COLOR: #D6D9DB; COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; FONT-WEIGHT: bold;}
+
+.highlight
+{COLOR: #C77C00; FONT-FAMILY: verdana; FONT-SIZE: 10px; FONT-WEIGHT: bold;}
+
+.h
+{COLOR: #C77C00; FONT-FAMILY: Trebuchet; FONT-SIZE: 12px; FONT-WEIGHT: bold;}
+
+.hlight
+{COLOR: #C77C00; FONT-FAMILY: ; FONT-SIZE: 10px; FONT-WEIGHT: normal; letter-spacing: 1px;}
+
+.light
+{COLOR: #7A8286; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.celllink
+{BACKGROUND-COLOR: white; COLOR: #74726E; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.zeroleft
+{BACKGROUND-IMAGE: url("/upload/pictures/background_zeroleft.jpg"); COLOR: #092431; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+/*----------------------- END SPECIFIC ---------------------------*/
+
+
+/*--------------------- ECOMMERCE ---------------------------*/
+
+.cellname
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; letter-spacing: 1px;}
+
+.cellvalue
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; letter-spacing: 1px;}
+
+/*-------------------- / ECOMMERCE --------------------------*/
+
+
+/*----------------------- MODULES ---------------------------*/
+
+.cellform
+{BACKGROUND: #D2DCE8; COLOR: #243F6B; FONT-FAMILY: arial; FONT-SIZE: 10px; FONT-WEIGHT: bold;}
+
+.poll 
+{COLOR:  #74726E; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+/*----------------------- END MODULES ---------------------------*/
+
+
+
+/*----------------------- LINK ---------------------------*/
+
+A:link
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:visited
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:hover
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A:active
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+
+A.bold:link
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;FONT-WEIGHT: bold;}
+A.bold:visited
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;FONT-WEIGHT: bold;}
+A.bold:hover
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A.bold:active
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;FONT-WEIGHT: bold;}
+
+
+A.link:link
+{COLOR: #74726E; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A.link:visited
+{COLOR: #74726E; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A.link:hover
+{COLOR: #74726E; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A.link:active
+{COLOR: #74726E; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+
+A.whitelink:link
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
+A.whitelink:visited
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
+A.whitelink:hover
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
+A.whitelink:active
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
+
+/*----------------------- END LINK ---------------------------*/

@@ -1,0 +1,168 @@
+#! /bin/sh
+
+
+#-------------------------------------------------------------------------
+# Topic	  : Exemple SHELL de traitement de la reponse manuelle de paiement
+# Version : 500
+#
+# 	Traitement de la reponse "manuelle" du serveur de paiement quand
+# 	l'acheteur retourne a la boutique apres le paiement 
+#
+#-------------------------------------------------------------------------
+
+#--------------------------------------------------------------------------
+#	Fonction get_data_field : récupération de la variable cryptée DATA
+#--------------------------------------------------------------------------
+#
+
+get_data_field ()
+{
+	# Récupération de la variable cryptée DATA
+
+	if [ "$REQUEST_METHOD" = "POST" ] ; then
+		VAR=`dd count=$CONTENT_LENGTH bs=1 2> /dev/null`
+		DATA=`echo  $VAR | awk ' BEGIN {FS="&"} {print $1}'| awk ' BEGIN {FS="="} {print $2}'`
+
+	else
+		DATA=`echo  $QUERY_STRING | awk ' BEGIN {FS="="} {print $2}'`
+
+	fi
+
+	message="message=$DATA"
+	
+}
+
+#	Affichage du header html
+
+echo "Content-Type: text/html"
+echo ""
+echo "<HTML><HEAD><TITLE>MERCANET - Paiement Securise sur Internet</TITLE></HEAD>"
+echo "<BODY bgcolor=\"#ffffff\" LINK=\"#ffff00\" VLINK=\"#99ffff\">"
+echo "<Font color=\"#000000\">"
+echo "<center><H1>Test du plug-in MERCANET</H1><br><br>"
+
+
+	# Récupération de la variable cryptée DATA
+
+	get_data_field
+
+    # Initialisation du chemin du fichier pathfile (à modifier)
+    #   ex :	 pathfile="pathfile=/home/repertoire/pathfile"
+    #
+    # Cette variable est facultative. Si elle n'est pas renseignée,
+    # l'API positionne la valeur à "./pathfile".
+
+	#	pathfile="pathfile=chemin_du_fichier_pathfile"
+
+	# Initialisation du chemin de l'executable response (à modifier)
+	# ex :	path_bin="/home/repertoire/bin/response"
+	#
+
+	path_bin="chemin_de_l'executable_response"
+
+	#  Appel du binaire response
+	
+	result=`$path_bin $message`
+	
+	#  Sortie de la fonction : !code!error!v1!v2!v3!...!v29
+	#  - code=0	: la fonction retourne les données de la transaction dans les variables v1, v2, ...
+	#		  Ces variables sont décrites dans le GUIDE DU PROGRAMMEUR
+	#  - code=-1 	: La fonction retourne un message d'erreur dans la variable error
+   
+	#on separe les differents champs
+
+	code=`echo  $result | awk ' BEGIN {FS="!"} {print $2}'`
+	error=`echo $result | awk ' BEGIN {FS="!"} {print $3}'`
+	merchant_id=`echo  $result | awk ' BEGIN {FS="!"} {print $4}'`
+	merchant_country=`echo  $result | awk ' BEGIN {FS="!"} {print $5}'`
+	amount=`echo  $result | awk ' BEGIN {FS="!"} {print $6}'`
+	transaction_id=`echo  $result | awk ' BEGIN {FS="!"} {print $7}'`
+	payment_means=`echo  $result | awk ' BEGIN {FS="!"} {print $8}'`
+	transmission_date=`echo  $result | awk ' BEGIN {FS="!"} {print $9}'`
+	payment_time=`echo  $result | awk ' BEGIN {FS="!"} {print $10}'`
+	payment_date=`echo  $result | awk ' BEGIN {FS="!"} {print $11}'`
+	response_code=`echo  $result | awk ' BEGIN {FS="!"} {print $12}'`
+	payment_certificate=`echo  $result | awk ' BEGIN {FS="!"} {print $13}'`
+	authorisation_id=`echo  $result | awk ' BEGIN {FS="!"} {print $14}'`
+	currency_code=`echo  $result | awk ' BEGIN {FS="!"} {print $15}'`
+	card_number=`echo  $result | awk ' BEGIN {FS="!"} {print $16}'`
+	cvv_flag=`echo  $result | awk ' BEGIN {FS="!"} {print $17}'`
+	cvv_response_code=`echo  $result | awk ' BEGIN {FS="!"} {print $18}'`
+	bank_response_code=`echo  $result | awk ' BEGIN {FS="!"} {print $19}'`
+	complementary_code=`echo  $result | awk ' BEGIN {FS="!"} {print $20}'`
+	return_context=`echo  $result | awk ' BEGIN {FS="!"} {print $21}'`
+	caddie=`echo  $result | awk ' BEGIN {FS="!"} {print $22}'`
+	receipt_complement=`echo  $result | awk ' BEGIN {FS="!"} {print $23}'`
+	merchant_language=`echo  $result | awk ' BEGIN {FS="!"} {print $24}'`
+	language=`echo  $result | awk ' BEGIN {FS="!"} {print $25}'`
+	customer_id=`echo  $result | awk ' BEGIN {FS="!"} {print $26}'`
+	order_id=`echo  $result | awk ' BEGIN {FS="!"} {print $27}'`
+	customer_email=`echo  $result | awk ' BEGIN {FS="!"} {print $28}'`
+	customer_ip_address=`echo  $result | awk ' BEGIN {FS="!"} {print $29}'`
+	capture_day=`echo  $result | awk ' BEGIN {FS="!"} {print $30}'`
+	capture_mode=`echo  $result | awk ' BEGIN {FS="!"} {print $31}'`
+	data=`echo  $result | awk ' BEGIN {FS="!"} {print $32}'`
+
+	#  analyse du code retour
+	
+	if [ "$code" = "" -a "$error" = "" ] ; then
+  	echo "<BR><CENTER>erreur appel response</CENTER><BR>"
+  	echo "executable response non trouve $path_bin"
+  	
+  	# Erreur, affiche le message d'erreur
+  	
+	else
+		if [ "$code" -eq "-1" ] ; then
+		echo "<center><b><h2>Erreur appel API de paiement.</h2></center></b>"
+		echo "<br><br><br>"
+		echo " message erreur : $error <br>"
+		
+		# OK, affichage les champs de la réponse
+		
+		else
+
+ 		echo "<center>"
+ 		echo "<H3>R&eacute;ponse manuelle du serveur MERCANET</H3>"
+ 		echo "</center>"
+ 		echo "<b><h4>"
+ 		echo "<br><hr>"
+ 		echo "<br>merchant_id : $merchant_id\n"
+		echo "<br>merchant_country : $merchant_country\n"
+		echo "<br>amount : $amount\n"
+		echo "<br>transaction_id : $transaction_id\n"
+		echo "<br>payment_means : $payment_means\n"
+		echo "<br>transmission_date : $transmission_date\n"
+		echo "<br>payment_time : $payment_time\n"
+		echo "<br>payment_date : $payment_date\n"
+		echo "<br>response_code : $response_code\n"
+		echo "<br>payment_certificate : $payment_certificate\n"
+		echo "<br>authorisation_id : $authorisation_id\n"
+		echo "<br>currency_code : $currency_code\n"
+		echo "<br>card_number : $card_number\n"
+		echo "<br>cvv_flag : $cvv_flag\n"
+		echo "<br>cvv_response_code : $cvv_response_code\n"
+		echo "<br>bank_response_code : $bank_response_code\n"
+		echo "<br>complementary_code : $complementary_code\n"
+		echo "<br>return_context : $return_context\n"
+		echo "<br>caddie : $caddie\n"
+		echo "<br>receipt_complement : $receipt_complement\n"
+		echo "<br>merchant_language : $merchant_language\n"
+		echo "<br>language : $language\n"
+		echo "<br>customer_id : $customer_id\n"
+		echo "<br>order_id : $order_id\n"
+		echo "<br>customer_email : $customer_email\n"
+		echo "<br>customer_ip_address : $customer_ip_address\n"
+		echo "<br>capture_day : $capture_day\n"
+		echo "<br>capture_mode : $capture_mode\n"
+		echo "<br>data : $data\n"
+		echo "<br><br><hr></b></h4>"
+
+
+		fi
+	
+	fi
+
+echo "</BODY></HTML>"
+
+# End of file
+

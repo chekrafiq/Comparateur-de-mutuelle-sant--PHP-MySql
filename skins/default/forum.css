@@ -1,0 +1,50 @@
+/*----------------------- MAIN ---------------------------*/
+
+.border
+{BACKGROUND-COLOR: #333333;}
+
+.forum1
+{BACKGROUND-COLOR: #eeeeee; COLOR: #333333; FONT-SIZE: xx-small;}
+
+.forum2
+{BACKGROUND-COLOR: #dddddd; COLOR: #333333; FONT-SIZE: xx-small;}
+
+.forum3
+{BACKGROUND-COLOR: #cccccc; COLOR: #333333; FONT-SIZE: 10px;}
+
+.forum4
+{BACKGROUND-COLOR: #333333; COLOR: #eeeeee; FONT-SIZE: 10px; FONT-WEIGHT: bold}
+
+.text
+{background-color: white; color: #243F6B; font-family: Verdana; font-size: 10px;}
+
+.forumbutton
+{background-color: #cccccc; color: #333333; font-family: arial; font-size: 8pt; font-weight: bold; 
+cursor: hand; height: 20;
+BORDER-BOTTOM: #A6B1BE 1px solid; BORDER-LEFT: #A6B1BE 1px solid; BORDER-RIGHT: #A6B1BE 1px solid; BORDER-TOP: #A6B1BE 1px solid}
+/*----------------------- END MAIN ---------------------------*/
+
+
+
+/*----------------------- LINK ---------------------------*/
+
+A.forum
+{COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 8pt; TEXT-DECORATION: none}
+A.forum:hover
+{COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 8pt; TEXT-DECORATION: underline}
+A.forum:visited
+{COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 8pt; TEXT-DECORATION: none}
+A.forum:active
+{COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 8pt; TEXT-DECORATION: underline}
+
+A.forumlight
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 8pt; TEXT-DECORATION: none}
+A.forumlight:hover
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 8pt; TEXT-DECORATION: underline}
+A.forumlight:visited
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 8pt; TEXT-DECORATION: none}
+A.forumlight:active
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 8pt; TEXT-DECORATION: underline}
+
+
+/*----------------------- END LINK ---------------------------*/

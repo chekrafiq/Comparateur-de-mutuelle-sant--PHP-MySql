@@ -1,0 +1,29 @@
+BODY
+{background-color: #D4D0C8; color: #77829D; font-family: Trebuchet MS, verdana; font-size: 12px;}
+
+.light
+{background-color: #F5F2ED; color: #77829D; font-family:  Trebuchet MS, verdana; font-size: 10px; letter-spacing: 1px;}
+
+.dark
+{background-color: #E8E5DF; color: #77829D; font-family:  Trebuchet MS, verdana; font-size: 10px; letter-spacing: 1px;}
+
+.edito
+{color: #56617C; font-family:  Trebuchet MS, verdana; font-size: 12px; letter-spacing: 1px;}
+
+TD
+{background-color: #E8E5DF; color: #77829D; font-family:  Trebuchet MS, verdana; font-size: 10px; letter-spacing: 1px;}
+
+I
+{color: #9E9B95; font-family:  Trebuchet MS, verdana; font-size: 10px; letter-spacing: 0px;}
+
+H1
+{color: #DFAA40;}
+
+A
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:hover
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A:visited
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:active
+{COLOR: #072838; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}

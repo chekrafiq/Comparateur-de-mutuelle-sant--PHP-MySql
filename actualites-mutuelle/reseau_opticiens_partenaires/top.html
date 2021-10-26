@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><script type="text/javaScript" language="javascript">var txtBox = document.getElementsByTagName("input");
+function fushBtn(){ 
+if(parseInt(txtBox[1].value) <=1)
+{ txtBox[1].value = 1; 
+document.getElementsByTagName("img")[1].src ="templateimg/pre-dis.png";
+document.getElementsByTagName("img")[2].src ="templateimg/next.png";
+}
+else if(parseInt(txtBox[1].value) >= 30)
+{txtBox[1].value = 30;
+document.getElementsByTagName("img")[1].src = "templateimg/pre.png";
+document.getElementsByTagName("img")[2].src = "templateimg/next-dis.png";
+}
+else
+{
+document.getElementsByTagName("img")[1].src = "templateimg/\pre.png";
+document.getElementsByTagName("img")[2].src = "templateimg/next.png";
+}
+txtBox[0].value = parseInt(txtBox[1].value) + "/30";window.open("page"+txtBox[1].value+".html","mainFrame");
+} 
+function funLeft() 
+{ 
+txtBox[1].value = parseInt(txtBox[1].value) - 1;
+fushBtn();
+}
+function funRight()
+{
+txtBox[1].value = parseInt(txtBox[1].value) + 1;
+fushBtn();
+};
+function fold()
+{
+var frms = parent.document.getElementsByTagName("frameset");
+var foldImg = document.getElementsByTagName("img");
+if(frms[1].cols =="7%,*")
+{ 
+frms[1].cols ="0,*";
+foldImg[0].src = "templateimg/expand.png"
+}
+else
+{
+frms[1].cols ="7%,*";
+foldImg[0].src ="templateimg/shrink.png"
+} 
+};
+var sel = document.getElementsByTagName("select");
+var frm=parent.document.getElementsByTagName("frame"); 
+function setZoom() 
+{
+frm[2].document.body.style.zoom =sel[0].value; 
+};  
+function zoomIn()
+{
+var zoo = parseInt(sel[0].value);
+if(zoo < 200)
+{
+var newZoom = (zoo+25) + "%";
+frm[2].document.body.style.zoom = newZoom;
+sel[0].value = newZoom;
+}
+};
+function zoomOut()
+{
+var zoo = parseInt(sel[0].value);
+if(zoo > 25)
+{
+var newZoom = (zoo-25) + "%";
+frm[2].document.body.style.zoom = newZoom;
+sel[0].value = newZoom;
+}
+};
+</script>
+</head>
+<body onload="fushBtn()"  bgcolor="#EEEEEE"> 
+<table width="437" border="0" >
+<tr>
+<td width="107" align="left" valign="middle"><img src="templateimg/shrink.png" alt="shrink"  onclick="fold()"/> </td>
+<td width="32"  align="right" valign="middle"><img src="templateimg/pre.png" alt="perPage"  onclick="funLeft()"/></td>
+<td width="32"  align="left" valign="middle"> <img src="templateimg/next.png" alt="nextPage"  onclick="funRight()"/> </td>
+<td width="84" align="left" valign="middle">
+<input type="text" style="text-align:center" value="1/30" size="10" /></td>
+ <td width="32"  align="right" valign="middle"> <img src="templateimg/zoomout.png" alt="smallView"  onclick="zoomOut()" /></td>
+<td width="32"  align="right" valign="middle"><img src="templateimg/zoomin.png" alt="bigView" onclick="zoomIn()" /></td>
+<td  align="left" valign="middle" style="width: 68px"><select name="sZoom" onchange="setZoom()">
+<option value="25%">25%</option>
+<option value="50%">50%</option>
+<option value="75%">75%</option>
+<option value="100%" selected="selected">100%</option>
+<option value="125%">125%</option>
+<option value="150%">150%</option>
+<option value="175%">175%</option>
+<option value="200%">200%</option>
+</select></td>
+<td  align="left" valign="middle" style="width: 68px"><a  target="_blank" title="Revenir" href="http://www.assursante.fr"><img style="border:none" src="templateimg/home.png" alt="home"  /></a></td>
+</tr>
+</table><input type="hidden" value="1" size="5" />
+</body></html>

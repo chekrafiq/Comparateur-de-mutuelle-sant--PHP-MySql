@@ -1,0 +1,25 @@
+<?php
+
+if (!is_null($ref->idpub)) 
+{ 
+  $p_idpub = $ref->idpub;
+  include("$g_modulespath/pub/sub/index.inc.php3"); 
+  return 1;
+}
+
+?>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+ var time = new Date();
+ ordval= (time.getTime());
+
+ document.write ('<NOLAYER>');
+ document.write ('<IFRAME SRC="http://ad.fr.doubleclick.net/adi/www.fimatex.fr/<?php print($ref->val4); ?>;kw=X;sz=468x60;tile=1;ord=' + ordval + '?" width=468 height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no>');
+ document.write ('<A TARGET="_blank" HREF="http://ad.fr.doubleclick.net/jump/www.fimatex.fr/<?php print($ref->val4); ?>;kw=X;sz=468x60;tile=1;abr=!ie4;abr=!ie5;ord=' + ordval + '?">');
+ document.write ('<IMG SRC="http://ad.fr.doubleclick.net/ad/www.fimatex.fr/<?php print($ref->val4); ?>;kw=X;sz=468x60;tile=1;abr=!ie4;abr=!ie5;ord=' + ordval + '?" WIDTH=468 HEIGHT=60 BORDER=0></A></IFRAME>');
+ document.write ('</NOLAYER>');
+
+//-->
+</SCRIPT>

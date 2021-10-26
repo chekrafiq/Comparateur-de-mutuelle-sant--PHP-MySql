@@ -1,0 +1,56 @@
+<br>
+
+<?php
+
+print("<p class=title align=center>::: $ref->name :::</p>");
+
+?>
+
+<table width=80%>
+<tr>
+<td class=main align=left>
+<?php
+
+print("<p align=left>$ref->content</p>");
+
+?>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td class=main width=95% align=center>
+
+<?php
+
+if ($ref->idform)
+{
+     $g_idform = $ref->idform;
+     include("$g_modulespath/form/sub/index.inc.php3");
+}
+
+if ($ref->idboard)
+{
+     $p_idboard = $ref->idboard;
+     include("$g_modulespath/board/sub/index.inc.php3");
+}
+
+if ($ref->alertflag)
+{
+     include("$g_modulespath/alert/sub/index.inc.php3");
+}
+
+?>
+
+</td>
+</tr>
+</table>
+
+<a href="javascript:window.close();">fermer cette fenetre</a>
+
+<?php 
+
+$g_copyrightflag = 0;
+
+?>

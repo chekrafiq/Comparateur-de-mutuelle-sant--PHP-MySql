@@ -1,0 +1,40 @@
+/*----------------------- ERROR ---------------------------*/
+
+BODY
+{background-color:white; COLOR: #021B28; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.main
+{background: url("/pictures/error/error_pattern.gif"); color: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; font-weight: bold;}
+
+.yellow
+{COLOR: #FFCF29; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+
+A.white
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A.white:hover
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A.white:visited
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A.white:active
+{COLOR: #FFCF29; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+
+A.bigwhite
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: x-large; TEXT-DECORATION: none;}
+A.bigwhite:hover
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: x-large; TEXT-DECORATION: none;}
+A.bigwhite:visited
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: x-large; TEXT-DECORATION: none;}
+A.bigwhite:active
+{COLOR: #FFCF29; FONT-FAMILY: verdana; FONT-SIZE: x-large; TEXT-DECORATION: none;}
+
+A
+{COLOR: #021B28; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A:hover
+{COLOR: #021B28; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A:visited
+{COLOR: #021B28; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A:active
+{COLOR: #FFCF29; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+
+/*----------------------- END ---------------------------*/

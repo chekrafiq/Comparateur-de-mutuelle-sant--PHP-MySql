@@ -1,0 +1,1 @@
+grep -h "^fun" * | sort > list.txt

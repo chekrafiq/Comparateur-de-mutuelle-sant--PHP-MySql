@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Accès autorisé uniquement aux personnels accrédités"
+AuthUserFile /home/web/degallaix/www/writeAccess/.htpasswd
+Require valid-user
+ErrorDocument 401 "FBI is being contacted.... [OK] IP sent !"

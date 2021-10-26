@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+Disallow: /writeAccess
+Disallow: /inc_class
+Disallow: /pictures
+Disallow: /inc_file
+Disallow: /intern
+Disallow: /kwo
+Disallow: /_kernix_
+Disallow: /inc_meta
+Disallow: /extern
+Disallow: /inc_dyn
+Disallow: /devis-mutuelle
+Disallow: /admin
+Disallow: /inc_js
+Disallow: /js
+Disallow: /inc_content
+Disallow: /mysql
+Disallow: /skins
+Disallow: /dyn_garantie
+Disallow: /control
+Disallow: /config
+Disallow: /cache
+Disallow: /inc_form
+Disallow: /upload
+
+Sitemap : http://www.assursante.fr/sitemap.xml

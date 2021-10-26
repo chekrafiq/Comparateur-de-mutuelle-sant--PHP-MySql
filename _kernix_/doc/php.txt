@@ -1,0 +1,53 @@
+./configure --with-config-file-path=/etc/httpd --with-apxs 
+
+./configure --with-config-file-path=/etc
+
+--disable-debug --enable-versioning --enable-safe-mode --enable-memory-limit
+--with-mysql --enable-ftp --with-zlib 
+--with-gd --enable-gd-native-ttf --with-ttf
+--with-jpeg-dir --with-xpm-dir=/usr/X11R6 --with-png-dir --with-tiff-dir 
+--enable-bcmath --with-pdflib
+--with-imap --with-kerberos --with-imap-ssl
+--enable-mbstring --enable-mbregex
+
+o cybermut : 
+--with-cybermut=/var/web/_lib_
+placer cm-mac.h libcm-mac.a dans /var/web/_lib_
+
+o freetype2 : 
+--with-freetype-dir
+
+o pour les sessions :
+--enable-track-vars --enable-trans-sid
+
+o pour ZendOptimizer :
+--disable-debug (option par defaut pour >= 4.0.1)
+
+o pour compiler en CGI :
+virer --with-apxs
+
+o pour PDF :
+--with-pdflib
+(a downloader http://www.pdflib.com/pdflib/download/index.html)
+
+
+====================================================================================
+
+LIBS : rajouter /usr/lib et /usr/local/lib dans le /etc/ld.so.conf puis ldconfig
+
+RPMs :
+
+[ gd, imap, freetype ] dans /pub/linux/distributions/redhat-contrib/libc6/i386
+de ftp.lip6.fr
+
+rpm -q libjpeg libpng libtiff zlib xpm gd freetype imap openssl
+rpm -q libjpeg-devel libpng-devel libtiff-devel zlib-devel xpm-devel gd-devel freetype-devel XFree86-devel imap-devel apache-devel openssl-devel
+
+====================================================================================
+
+RQ :
+
+- suppression de toute ref à T1LIB -> il s'agit de la librairie permettant de gérer 
+les fonts UNIX ... nous n'utilisons que les TTF
+
+- sur une RH62 : uniquement rajouter libgd 183

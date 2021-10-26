@@ -1,0 +1,14 @@
+safe_mode       = Off
+log_errors      = On
+display_errors  = On
+expose_php      = Off
+
+
+include_path = ".:..:../..:../../.."
+error_log    = "syslog"
+
+memory_limit       = 64M
+max_execution_time = 100000
+
+mysql.allow_persistent = On
+mysql.default_host     = "localhost"

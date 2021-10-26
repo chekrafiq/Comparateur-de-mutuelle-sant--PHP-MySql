@@ -1,0 +1,27 @@
+CODE;;nom;;TYPE;;value
+&& ...
+
+> TYPE
+  0 : txt (petite zone de texte)
+  1 : txtarea (grande zone de texte)
+  2 : select (menu déroulant)
+
+
+> VALUE
+  valeurs séparées par des virgules
+
+
+exemple :
+COUL;;couleur;;2;;vert,rouge,bleu,jaune
+&&T;;taille;;2;;2 par 4, 4 par 6
+&&TSU;;tissu;;0;;options:lin,coton
+&&MOT;;motifs;;0;;options:golf,chasse
+
+
+
+NOTE pour les produits
+mettre un _ devant le nom de la caractéristique afin d'ne faire une option produit
+
+exemple :
+COUL;;_couleur;;0;;vert, rouge
+&& ...

@@ -1,0 +1,47 @@
+/*----------------------- CLIENTADMIN ---------------------------*/
+
+BODY
+{BACKGROUND: white; COLOR: black; FONT-FAMILY: Verdana; FONT-SIZE: 10px;}
+
+.middle
+{BACKGROUND: url("/pictures/clientadmin/client_admin_pattern.gif");}
+
+.main
+{BACKGROUND: #425862; COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; FONT-WEIGHT: bolder;}
+
+.response
+{BACKGROUND: white; COLOR: black; FONT-FAMILY: Verdana; FONT-SIZE: 10px;}
+
+.list 
+{BACKGROUND: white; COLOR: black; FONT-FAMILY: Verdana; FONT-SIZE: 10px;}
+
+.color1
+{BACKGROUND: #546075; COLOR: white; FONT-FAMILY: Arial; FONT-SIZE: 12px; FONT-WEIGHT: bold;}
+
+.color2
+{BACKGROUND: #323A4D; COLOR: white; FONT-FAMILY: Verdana; FONT-SIZE: 10px; FONT-WEIGHT: bold;}
+
+.color3
+{BACKGROUND: #C7CBD1; COLOR: #243F6B; FONT-FAMILY: Verdana; FONT-SIZE: 10px; FONT-WEIGHT: bold;}
+
+A
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:hover
+{COLOR: white; BACKGROUND-COLOR: #B5B9C1; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:visited
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:active
+{COLOR: #FFCA15; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+
+
+.widget
+{color: #2F3B4C; font-family: Verdana; font-size: 10px; background-color: #C6C6C6;}
+
+.button
+{background-color: #323A4D; color: white; FONT-FAMILY: Verdana; font-size: 10px; font-weight: bold; cursor: hand;
+BORDER-BOTTOM: #A6B1BE 1px solid; BORDER-LEFT: #A6B1BE 1px solid; BORDER-RIGHT: #A6B1BE 1px solid; BORDER-TOP: #A6B1BE 1px solid;}
+
+select
+{color: #2F3B4C; font-family: Verdana; font-size: 10px; background-color: #C6C6C6;}
+
+/*----------------------- END ---------------------------*/

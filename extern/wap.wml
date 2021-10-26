@@ -1,0 +1,6 @@
+<?php
+
+$p_format = "WAP";
+include("index.dyn.php3");
+
+?>

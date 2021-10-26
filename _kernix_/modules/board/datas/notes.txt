@@ -1,0 +1,8 @@
+- rajouter la fonction txt2bdd
+
+- egroup
+1 defaut
+2 board
+3 warning
+
+http://www.skynet.ie/~mark/home/links.html

@@ -1,0 +1,38 @@
+#########################################################################
+#
+#	Pathfile 
+#
+#	Liste des fichiers parametres utilises par le module de paiement
+#
+#########################################################################
+
+# ------------------------------------------------------------------------
+# Chemin vers le répertoire des logos depuis le web alias  
+# Exemple pour le répertoire www.merchant.com/mercanet/payment/logo/
+# indiquer:
+# ------------------------------------------------------------------------
+#
+D_LOGO!/pictures/payment/mercanet/!
+#
+# --------------------------------------------------------------------------
+#  Fichiers paramètres liés a l'api mercanet paiement	
+# --------------------------------------------------------------------------
+#
+# fichier des  paramètres mercanet
+#
+#F_DEFAULT!/home/web/sceta-parc/www/_kernix_/opt/payment/mercanet/parmcom.mercanet!
+F_DEFAULT!../../_kernix_/opt/payment/mercanet/parmcom.mercanet!
+#
+# fichier paramètre commercant
+#
+#F_PARAM!/home/web/sceta-parc/www/_kernix_/opt/payment/mercanet/parmcom!
+F_PARAM!../../_kernix_/opt/payment/mercanet/parmcom!
+#
+# certificat du commercant
+#
+#F_CERTIFICATE!/home/web/sceta-parc/www/_kernix_/opt/payment/mercanet/certif!
+F_CERTIFICATE!../../_kernix_/opt/payment/mercanet/certif!
+#
+# --------------------------------------------------------------------------
+# 	end of file
+# --------------------------------------------------------------------------

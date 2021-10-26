@@ -1,0 +1,43 @@
+CREATE TABLE form (
+   idform tinyint(3) unsigned NOT NULL auto_increment,
+   name varchar(20),
+   subject text,
+   nbfield int(11) DEFAULT '5' NOT NULL,
+   fieldstring varchar(200),
+   display tinyint(3) unsigned DEFAULT '0' NOT NULL,
+   email varchar(100),
+   emailflag tinyint(3) unsigned DEFAULT '0' NOT NULL,
+   idegroup int(10) unsigned DEFAULT '0' NOT NULL,
+   nbpost int(10) unsigned DEFAULT '0' NOT NULL,
+   lastpostdate datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+   date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+   PRIMARY KEY (idform),
+   KEY idform (idform)
+);
+
+CREATE TABLE boardpost (
+   idpost int(10) unsigned NOT NULL auto_increment,
+   idboard int(10) unsigned DEFAULT '0' NOT NULL,
+   idtheme int(10) unsigned DEFAULT '0' NOT NULL,
+   idparent int(10) unsigned DEFAULT '0' NOT NULL,
+   title varchar(200) NOT NULL,
+   content text NOT NULL,
+   abstract text NOT NULL,
+   link varchar(200) NOT NULL,
+   nbview int(10) unsigned DEFAULT '0' NOT NULL,
+   nbreply int(10) unsigned DEFAULT '0' NOT NULL,
+   level tinyint(3) unsigned DEFAULT '0' NOT NULL,
+   validflag tinyint(3) unsigned DEFAULT '1' NOT NULL,
+   adminflag tinyint(3) unsigned DEFAULT '0' NOT NULL,
+   nickname varchar(20) NOT NULL,
+   email varchar(100) NOT NULL,
+   url varchar(200) NOT NULL,
+   idmember int(10) unsigned DEFAULT '0' NOT NULL,
+   lastreplydate datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+   date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+   PRIMARY KEY (idpost),
+   KEY idpost (idpost, idboard, idtheme, idparent)
+);
+
+
+

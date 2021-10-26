@@ -1,0 +1,36 @@
+###############################################################################
+#
+#	Fichier des paramètres du commercant
+#
+#	Remarque :	Ce fichier paramètre est sous la responsabilité du
+#				commercant
+#
+###############################################################################
+
+
+# URL de retour automatique de la reponse du paiement
+
+AUTO_RESPONSE_URL!http://sceta-parc.kernix.net/extern/payment/mercanet/autoresponse.php3!
+
+# URL de retour suite a paiement refuse
+
+CANCEL_URL!http://sceta-parc.kernix.net/extern/payment/mercanet/bank2site.php3!
+
+# URL de retour suite a paiement accepte
+
+RETURN_URL!http://sceta-parc.kernix.net/extern/payment/mercanet/bank2site.php3!
+
+# Code devise  ( 978=EURO )
+
+CURRENCY!978!
+
+# Logo du commercant
+
+LOGO2!logo_sceta.gif!
+
+# Liste des moyens de paiement acceptés
+
+PAYMENT_MEANS!CB,2,VISA,2,MASTERCARD,2!
+
+
+# END OF FILE

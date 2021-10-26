@@ -1,0 +1,143 @@
+<?php
+include_once("_kernix_/var.inc.php3");
+
+ob_start();
+
+$table_admsite		= "adm_site";
+$table_admshop		= "adm_shop";
+$table_affiliate	= "affiliate";
+$table_board		= "board";
+$table_boardpost	= "boardpost";
+$table_client		= "client";
+$table_command		= "command";
+$table_company		= "company";
+$table_currency		= "currency";
+$table_logaltern	= "logaltern";
+$table_mailing		= "mailing";
+$table_msg			= "msg";
+$table_payment		= "payment";
+$table_port			= "port";
+$table_product		= "product";
+$table_property		= "property";
+$table_users		= "users";
+$table_email		= "email";
+
+$table_numsession	= "numsession";
+$table_session		= "session";
+$table_taxes		= "taxes";
+$table_visitor		= "visitor";
+$table_zone			= "port_zone";
+
+//--- FORMAT
+if (isset($p_format) && ($p_format != "HTML"))
+{
+  include("$g_modulespath/output/sub/index.inc.php3");
+  $c_db->close();
+  return 1;
+}
+//--- END
+
+
+$l_sql = "SELECT * FROM $table_admsite, $table_admshop";
+$c_db->query($l_sql);
+$adm = $c_db->object_result();
+
+//--- OPEN FLAG
+if ($adm->openflag == 0)
+{
+  if(!(($PHP_AUTH_USER == "acces") && ($PHP_AUTH_PW == "restreint"))) 
+  {
+    Header("status: 401 Unauthorized");
+    Header("HTTP/1.0 401 Unauthorized");
+    Header("WWW-authenticate: basic realm=\"KWO adm : entrez vos login/password\"");
+    print("mauvaise identite");
+    return 0;
+  }
+}
+//--- END
+
+//--- ZEROACTION
+if (($p_idref == 0) || !isset($p_idref))
+{
+  $g_design = "zero";
+  include("$g_designpath/index_site.inc.php3");
+  $c_db->close();
+  return 1;
+}
+//--- END
+
+//--- REDIRECTION TARIFICATEUR
+if ($p_idref==-6){
+  //header("Location: http://www.assursante.fr/tarificateur2011/");
+  //header("Location: http://dees.zkoran.com/assursante.fr_source/etape1.php");
+  exit(0);
+}
+//--- END
+
+
+$l_sql = "SELECT * FROM $table_ref as R, $table_property as P WHERE R.idref = '$p_idref' AND R.idproperty = P.idproperty AND R.visibilityflag = 1";
+$c_db->query($l_sql);
+if ($c_db->numrows == 0)
+{
+  header("Location: $g_urlroot");
+  exit(0);
+}
+$ref = $c_db->object_result();
+if ($ref->idproperty == 18)
+{
+  $l_sql = "SELECT * FROM $table_ref as R, $table_property as P WHERE R.idref = '$ref->up' AND R.idproperty = P.idproperty AND R.visibilityflag = 1";
+  $c_db->query($l_sql);
+  if ($c_db->numrows == 0)
+  {
+    header("Location: $g_urlroot");
+    exit(0);
+  }
+  $ref = $c_db->object_result();
+}
+
+
+//---ACCESS RESTRICTION
+if (!empty($ref->accesslist))
+{
+  $l_sql = "SELECT idusers FROM $table_users WHERE login = '$PHP_AUTH_USER' AND password = '$PHP_AUTH_PW' AND idusers IN ($ref->accesslist)";
+  $c_db->query($l_sql);
+  if (!($c_db->numrows > 0))
+  {
+    Header("status: 401 Unauthorized");
+    Header("HTTP/1.0 401 Unauthorized");
+    Header("WWW-authenticate: basic realm=\"KWO user : entrez vos login/password\"");
+    print("mauvaise identite");
+    return 0;
+  }
+  $l_sql = "UPDATE $table_users SET nbconnect = nbconnect + 1, lastsessiondate = '$l_date' WHERE idusers = '" . $c_db->result(0,0) . "'";
+  $c_db->query($l_sql);
+}
+//---END
+
+
+//--- TEXT CONVERTION
+$ref->name        = bdd2html($ref->name);
+if ($ref->content_typeflag != 1) $ref->content = bdd2html($ref->content);
+//--- END
+
+$g_idref = $p_idref;
+
+if ($ref->design)
+{
+  $g_design = $ref->design;
+}
+else
+{
+  $g_design = "dynamic";
+}
+
+$g_title         = $ref->title_ref;
+$g_designpath    = "$g_incpath/design";
+
+include("$g_designpath/index_site.inc.php3");
+
+ob_flush();
+
+$c_db->close();
+
+?>

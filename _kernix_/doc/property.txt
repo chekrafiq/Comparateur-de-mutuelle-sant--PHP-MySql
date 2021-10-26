@@ -1,0 +1,27 @@
+nom;;type;;value
+&& ...
+
+type
+0 : txt
+1 : txtarea
+2 : select
+
+value
+comma separated for select
+
+
+example :
+
+couleur;;2;;vert,rouge,bleu,jaune
+&&taille;;2;;2 par 4, 4 par 6
+&&tissu;;0;;options:lin,coton
+&&motifs;;0;;options:golf,chasse
+
+NOTE pour les produits
+mettre un _ devant les caracteristiques du produit
+
+exemple :
+
+_couleur;;0;;options:vert, rouge
+&&font;;0;;
+ 

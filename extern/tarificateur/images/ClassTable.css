@@ -1,0 +1,63 @@
+﻿.StyleTAble {
+	background-color: #e5e6e6;
+	border: 1px solid #484848;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	font-family: "times New Roman", Times, serif;
+	font-size: 18px;
+}
+.td1 {
+	width: 81px;
+}
+.td2 {
+	width: 115px;
+}
+.td3 {
+	width: 109px;
+}
+.td4 {
+	width: 129px;
+}
+.td5 {
+	width: 98px;
+}
+.td6 {
+	width: 95px;
+}
+.td7 {
+	width: 138px;
+}
+.td8 {
+	width: 125px;
+}
+.Kleur1 {
+	color: #FF0066;
+}
+.Kleur2 {
+	color: #CC99FF;
+}
+.Kleur3 {
+	color: #99CC00;
+}
+.TTD1 {
+	width: 114px;
+}
+.TTD2 {
+	width: 108px;
+}
+.TTD3 {
+	width: 126px;
+}
+.TTD4 {
+	width: 92px;
+}
+.tttd1 {
+	width: 137px;
+}
+.tttd2 {
+	width: 211px;
+}
+.tttd3 {
+	width: 184px;
+}

@@ -1,0 +1,31 @@
+/*----- CADDIE -----*/
+
+.caddiecolor1
+{BACKGROUND: #FFFFFF; COLOR: #000000; FONT-FAMILY: Arial; FONT-SIZE: 10px;}
+
+.caddiecolor2
+{BACKGROUND: #FFFFFF; COLOR: #000000; FONT-FAMILY: Arial; FONT-SIZE: 10px; letter-spacing: 1px;}
+
+.caddiecolor3
+{BACKGROUND: #000000; COLOR: white;   FONT-FAMILY: Arial; FONT-SIZE: 10px; font-weight: bold; letter-spacing: 1px;}
+
+.caddiedelete
+{BACKGROUND: white}
+
+.caddiebutton
+{background-color: #C20D24; color: #FFFFFF; font-family: Arial; FONT-SIZE: 10px; font-weight: bold; cursor: hand;
+BORDER-BOTTOM: #AAAAAA 1px solid; BORDER-LEFT: #FFFFFF 1px solid; BORDER-RIGHT: #AAAAAA 1px solid; BORDER-TOP: #FFFFFF 1px solid;}
+
+.caddietext
+{background-color: white; color: black; font-family: Verdana; font-size: 10px;  overflow-y: auto;}
+
+A.caddielink
+{COLOR: #444F5F; FONT-FAMILY: Verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline}
+A.caddielink:hover
+{COLOR: #444F5F; FONT-FAMILY: Verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline; BACKGROUND: white}
+A.caddielink:visited
+{COLOR: #444F5F; FONT-FAMILY: Verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline}
+A.caddielink:active
+{COLOR: #444F5F; FONT-FAMILY: Verdana; FONT-SIZE: 10px; TEXT-DECORATION: none}
+
+/*----- END CADDIE -----*/

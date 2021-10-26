@@ -1,0 +1,227 @@
+<!--
+################################################################################
+##
+## HTML Text Editing Component for hosting in Web Pages
+## Copyright (C) 2001  Ramesys (Contracting Services) Limited
+##
+## This library is free software; you can redistribute it and/or
+## modify it under the terms of the GNU Lesser General Public
+## License as published by the Free Software Foundation; either
+## version 2.1 of the License, or (at your option) any later version.
+##
+## This library is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+## Lesser General Public License for more details.
+##
+## You should have received a copy of the GNU LesserGeneral Public License
+## along with this program; if not a copy can be obtained from
+##
+##    http://www.gnu.org/copyleft/lesser.html
+##
+## or by writing to:
+##
+##    Free Software Foundation, Inc.
+##    59 Temple Place - Suite 330,
+##    Boston,
+##    MA  02111-1307,
+##    USA.
+##
+## Original Developer:
+##
+##	Austin David France
+##	Ramesys (Contracting Services) Limited
+##	Mentor House
+##	Ainsworth Street
+##	Blackburn
+##	Lancashire
+##	BB1 6AY
+##	United Kingdom
+##  email: Austin.France@Ramesys.com
+##
+## Home Page:    http://richtext.sourceforge.net/
+## Support:      http://richtext.sourceforge.net/
+##
+################################################################################
+##
+## Authors & Contributers:
+##
+##	OZ		Austin David France		[austin.france@ramesys.com]
+##				Primary Developer
+##
+##	LEON	Leon Reinders			[leonreinders@hetnet.nl]
+##				Author of View Source & History Functions
+##
+##	DIRK	Dirk Datzert			[Dirk.Datzert@rasselstein-hoesch.de]
+##				Justify Full Option
+##
+## History:
+##
+##	OZ		08-01-2002
+##			Extended the richeditor interface to include an options property.
+##			This property can be set to enable/disable functionality in the
+##			editor.
+##
+##	OZ		22-01-2002
+##			Disable drag-drop into the editor window and from toolbar buttons.
+##
+##	OZ		10-02-2002
+##			Added new Full Justify toolbar button.  Implementation of
+##			a mod to the editor made by Dirk Datzert who supplied the code and
+##			the Image.
+##
+##	OZ		11-02-2002
+##			Startup with text area set to contenteditable="false".  The content
+##			is made editable when the editor has been initialised.
+##
+##	OZ		11-02-2002
+##			Include debug routines script (rte_debug.js)
+##
+##	OZ		14-02-2002
+##			Fix removing of color from text.  This actually removes all formatting
+##			and is equivelent to selecting the remove formatting option.
+##
+##	OZ		14-02-2002
+##			Reset Fill/Text color buttons once event has fired so they no longer
+##			appear pressed.
+##
+-->
+<HTML><HEAD>
+<META content="HTML 4.0" name="vs_targetSchema">
+<META content="Microsoft FrontPage 5.0" name="GENERATOR">
+<LINK rel="StyleSheet" type="text/css" href="richedit.css">
+<LINK rel="StyleSheet" type="text/css" href="syntax.css">
+<LINK rel="StyleSheet" type="text/css" href="custom.css">
+<SCRIPT language="JavaScript" src="rte_interface.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="rte_debug.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="rte.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="rte_codesweep.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="rte_editmode.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="rte_history.js"></SCRIPT>
+<SCRIPT language="JavaScript">
+// This defines the scriptlets public interface.  See rte_interface.js for
+// the actual interface definition.
+var public_description =  new RichEditor();
+
+// Initialise the editor as soon as the window is loaded.
+window.attachEvent("onload", initEditor);
+</SCRIPT>
+</HEAD>
+<BODY style="BORDER-RIGHT: 1px inset; BORDER-TOP: 1px inset; BORDER-LEFT: 1px inset; BORDER-BOTTOM: 1px inset" leftMargin="0" topMargin="0" scroll="no" onload="init()" UNSELECTABLE="on">
+<table unselectable="on" height="100%" cellspacing="0" cellpadding="0" width="100%" bgcolor="buttonface" border="0">
+  <tr ondragstart="handleDrag(0)" onmouseup="press(false)" onmousedown="press(true)" onmouseover="hover(true)" onmouseout="hover(false)">
+    <td class="rebar"><nobr><span class="toolbar">
+		<img class="spacer" src="spacer.gif" width="2"><span class="start"></span>
+		<img id="btnPost"	onclick="post()" alt="Post Topic" src="images/icon_post.gif" align="absMiddle" width="50" height="20">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnCut"	onclick="doStyle('Cut')" alt="Cut" src="images/icon_cut.gif" align="absMiddle" width="20" height="20">
+		<img id="btnCopy"	onclick="doStyle('Copy')" alt="Copy" src="images/icon_copy.gif" align="absMiddle" width="20" height="20">
+		<img id="btnPaste"	onclick="doStyle('Paste')" alt="Paste" src="images/icon_paste.gif" align="absMiddle" width="20" height="20">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnSpell"  onclick="" alt="Spell Check" src="images/icon_spell.gif" align="absMiddle" width="20" height="20">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnSelect" onclick="doStyle('SelectAll')" alt="Select All" src="images/icon_select_all.gif" align="absMiddle" width="20" height="20">
+		<img id="btnRemove" onclick="doStyle('RemoveFormat')" alt="Remove Formatting" src="images/icon_rem_formatting.gif" align="absMiddle" width="20" height="20">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnLink"   onclick="link(true)" alt="Insert Link" src="images/icon_ins_link.gif" align="absMiddle" width="20" height="20">
+		<img id="btnRemLink" onclick="link(false)" alt="Remove Link" src="images/icon_rem_link.gif" align="absMiddle" width="20" height="20">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnImage"  onclick="insert('image')" alt="Insert Image" src="images/icon_ins_image.gif" align="absMiddle" width="20" height="20">
+		<!--<img id="btnTable"  onclick="insert('table')" alt="Insert Table" src="images/icon_ins_table.gif" align="absMiddle" width="20" height="20">-->
+		<img id="btnRule"   onclick="doStyle('InsertHorizontalRule')" alt="Insert Horizontal Line" src="images/icon_rule.gif" align="absMiddle" width="20" height="20">
+		<img id="btnSmile"  onclick="insert('smile')" alt="Insert Smily 8-)" src="images/em.icon.smile.gif" align="absMiddle" width="15" height="15">
+		<img id="btnChar"	onclick="insert('char')" alt="Insert special character" src="images/icon_ins_char.gif" align="absMiddle" width="20" height="20" border="0">
+		<img class="spacer" src="spacer.gif" width="2">
+		<!--<span class="sep"></span><img id="btnAbout"  onclick="insert('about')" alt="About Richtext Editor" src="images/icon_about.gif" align="absMiddle" width="16" height="16">-->
+    </span></nobr></td></tr>
+  <tr ondragstart="handleDrag(0)" onmouseup="press(false)" onmousedown="press(true)" onmouseover="hover(true)" onmouseout="hover(false)">
+    <td class="rebar"><nobr><span class="toolbar">
+		<img class="spacer" src="spacer.gif" width="2"><span class="start"></span>
+		<img id="btnBold"     onclick="doStyle('bold')" alt="Bold" src="images/icon_bold.gif" align="absMiddle" width="20" height="20">
+		<img id="btnItalic"   onclick="doStyle('italic')" alt="Italic" src="images/icon_italic.gif" align="absMiddle" width="20" height="20">
+		<img id="btnUnderline"  onclick="doStyle('underline')" alt="Underline" src="images/icon_underline.gif" align="absMiddle" width="20" height="20">
+		<img id="btnStrikethrough"  onclick="doStyle('strikethrough')" alt="Strikethrough" src="images/icon_strikethrough.gif" align="absMiddle" width="20" height="20">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnLeftJustify"  onclick="doStyle('JustifyLeft')" alt="Align Left" src="images/icon_left.gif" align="absMiddle" width="20" height="20">
+		<img id="btnCenter"   onclick="doStyle('JustifyCenter')" alt="Center" src="images/icon_center.gif" align="absMiddle" width="20" height="20">
+		<img id="btnRightJustify"  onclick="doStyle('JustifyRight')" alt="Align Right" src="images/icon_right.gif" align="absMiddle" width="20" height="20">
+		<img id="btnFullJustify" onclick="doStyle('JustifyFull')" alt="Align Block" src="images/icon_block.gif" align="absMiddle" width="20" height="20">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnNumList"  onclick="doStyle('InsertOrderedList')" alt="Numbered List" src="images/icon_numlist.gif" align="absMiddle" width="20" height="20">
+		<img id="btnBulList"  onclick="doStyle('InsertUnorderedList')" alt="Buletted List" src="images/icon_bullist.gif" align="absMiddle" width="20" height="20">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnOutdent"  onmousedown="doStyle('Outdent')" alt="Decrease Indent" src="images/icon_outdent.gif" align="absMiddle" width="20" height="20">
+		<img id="btnIndent"   onmousedown="doStyle('Indent')" alt="Increase Indent" src="images/icon_indent.gif" align="absMiddle" width="20" height="20">
+                <span id="featureSource">
+		<img class="spacer" src="spacer.gif" width="2"><span class="start"></span>&nbsp;
+		<span class="label">Source</span>
+		<input class="checkbox" hidefocus type="checkbox" name="switchMode" onclick="setEditMode(switchMode)">
+		</span>
+		<span id="featureHistory">
+		<img class="spacer" src="spacer.gif" width="2"><span class="sep"></span>
+		<img id="btnPrev" onmousedown="goHistory(-1)" alt="History back"    src="images/icon_undo.gif" align="absMiddle" width="20" height="20">
+		<img id="btnNext" onmousedown="goHistory(1)"  alt="History forward" src="images/icon_redo.gif" align="absMiddle" width="20" height="20">
+		</span>
+		</span></nobr></td></tr>
+	<tr id="featureStyleBar" ondragstart="handleDrag(0)" onmouseup="press(false)" onmousedown="press(true)" onmouseover="hover(true)" onmouseout="hover(false)">
+    <td class="rebar"><nobr><span class="toolbar">
+		<img class="spacer" src="spacer.gif" width="2"><span class="start"></span>&nbsp;
+		<span id="featureStyle">
+			<span class="label">Style</span>
+			<select name="" id="ctlStyle" class="button" onchange="addTag(this)">
+			</select>
+			<span class="sep"></span>
+		</span>
+		<span id="featureFont">
+			<span class="label">Font</span>
+			<select hidefocus class="button" id="ctlFont"  onchange="sel(this)">
+				<option selected></option>
+				<option value="Arial">Arial</option>
+				<option value="Arial Black">Arial Black</option>
+				<option value="Comic Sans MS">Comic Sans MS</option>
+				<option value="Courier New">Courier New</option>
+				<option value="Lucida Console">Lucida Console</option>
+				<option value="MS Sans Serif">MS Sans Serif</option>
+				<option value="Tahoma">Tahoma</option>
+				<option value="Times New Roman">Times New Roman</option>
+				<option value="Trebuchet MS">Trebuchet MS</option>
+				<option value="Verdana">Verdana</option>
+			</select>
+		</span>
+		<span id="featureFontSize">
+			<span class="sep"></span>
+			<span class="label">Size</span>
+			<select hidefocus class="button" id="ctlSize"  onchange="sel(this)">
+				<option selected></option>
+				<option value="1">xx-small</option>
+				<option value="2">x-small</option>
+				<option value="3">small</option>
+				<option value="4">medium</option>
+				<option value="5">large</option>
+				<option value="6">x-large</option>
+				<option value="7">xx-large</option>
+			</select>
+		</span>
+		<span id="featureColour">
+			<span class="sep"></span>
+			<img id="btnText"  onclick="pickColor('ForeColor')" alt="Text Color" src="images/icon_color_text.gif" align="absMiddle" width="36" height="20">
+			<img id="btnFill"  onclick="pickColor('BackColor')" alt="Background Color" src="images/icon_color_fill.gif" align="absMiddle" width="36" height="20">
+		</span>
+		
+	</span></nobr></td>
+</tr>
+<!-- Fields are inserted here -->
+<tr id="rebarBottom">
+    <td class="spacer" height="2"><img height="1" src="spacer.gif" align="left"></td></tr>
+  <tr>
+    <td class="textedit" valign="top" height="100%">
+		<div class="document" id="doc" onkeyup="reset()" contenteditable="false" style="OVERFLOW: auto; WIDTH: 100%; HEIGHT: 100%" onclick="reset()" height="100%" width="100%">
+	  </div>
+	</td></tr>
+</table>
+<object id="color" data="colorchooser.html" type="text/x-scriptlet" VIEWASTEXT>
+</object>
+<SCRIPT for="color" event="onscriptletevent(name, data)">
+	setColor(name, data);
+</SCRIPT>
+</BODY></HTML>

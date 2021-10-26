@@ -1,0 +1,40 @@
+#########################################################################
+#
+#	Pathfile 
+#
+#	Liste fichiers parametres utilises par le module de paiement
+#
+#########################################################################
+# sips_request 014213245611111 50000 250 fr NULL NULL NULL NULL
+#------------------------------------------------------------------------
+# Repertoire des logos des moyens de paiement
+# WARNING doit etre termine par un '/'
+#------------------------------------------------------------------------
+
+D_LOGO:/pictures/payment/sogenactif/:
+
+#------------------------------------------------------------------------
+# Repertoire des fichiers parametres
+# WARNING doit etre termine par un '/'
+#------------------------------------------------------------------------
+
+#D_PARAM:/home/web/fimatex/www/_kernix_/opt/payment/sogenactif/:
+D_PARAM:../../../_kernix_/opt/payment/sogenactif/:
+
+#------------------------------------------------------------------------
+# Fichiers parametres 
+# WARNING ne pas modifier ces parametres !!!
+#------------------------------------------------------------------------
+
+# certificat du commercant 
+F_CERTIFICATE:D_PARAM:certif:
+
+# parametres du commercant  
+F_PARAM:D_PARAM:parmcom:
+
+# parametres sogenactif 
+F_DEFAULT:D_PARAM:parmcom.sogenactif:
+
+#########################################################################
+# End of file
+#########################################################################

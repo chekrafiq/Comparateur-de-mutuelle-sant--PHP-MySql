@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsTarifs" value="name:n_tarif;datatype:int,name:NREGIME;datatype:int,name:departements;datatype:string,name:NOMCMP;datatype:string,name:NOMFRML;datatype:string,name:TARIF;datatype:real,name:AGE_MIN;datatype:int,name:AGE_MAX;datatype:int,name:COUPLE;datatype:string,name:SEXE;datatype:string" />
+</info>

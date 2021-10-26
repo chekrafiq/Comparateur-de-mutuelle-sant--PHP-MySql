@@ -1,0 +1,34 @@
+CREATE TABLE egroup (
+   idegroup int(10) unsigned NOT NULL auto_increment,
+   name char(30),
+   subject char(200),
+   nbmsg int(10) unsigned DEFAULT '0' NOT NULL,
+   lastmsgdate datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+   date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+   PRIMARY KEY (idegroup)
+);
+
+CREATE TABLE email (
+   idemail int(10) unsigned NOT NULL auto_increment,
+   idegroup int(10) unsigned DEFAULT '0' NOT NULL,
+   idvisitor int(10) unsigned DEFAULT '0' NOT NULL,
+   email char(100) NOT NULL,
+   status tinyint(4) DEFAULT '1' NOT NULL,
+   date datetime,
+   PRIMARY KEY (idemail)
+);
+
+CREATE TABLE mailing (
+   idmailing int(10) unsigned NOT NULL auto_increment,
+   idegroup int(10) unsigned DEFAULT '0' NOT NULL,
+   name varchar(30) NOT NULL,
+   subject varchar(100) NOT NULL,
+   body text NOT NULL,
+   format varchar(10) DEFAULT 'TEXT' NOT NULL,
+   nbemail tinyint(4) DEFAULT '0' NOT NULL,
+   nbfollow int(11) DEFAULT '0' NOT NULL,
+   nbvisitor int(10) unsigned DEFAULT '0' NOT NULL,
+   date datetime,
+   PRIMARY KEY (idmailing)
+);
+

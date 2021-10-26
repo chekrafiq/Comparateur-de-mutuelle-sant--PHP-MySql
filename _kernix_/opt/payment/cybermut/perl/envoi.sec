@@ -1,0 +1,180 @@
+#!/usr/bin/perl
+
+use CGI;
+use CMSSL;
+
+# Positionnement de CMKEYDIR:
+$ENV{"CMKEYDIR"} = "./cles/";
+
+$l_date = `/bin/date`;
+
+# Recuperation des donnees
+$form           = new CGI;
+$TPE            = $form->param('TPE');
+$societe        = $form->param('societe');
+$langue         = $form->param('langue');
+$reference      = $form->param('reference');
+$texte_libre    = $form->param('libre');
+$montant        = $form->param('montant');
+$site           = $form->param('site');
+$url_ok         = $form->param('url_ok');
+$url_ko         = $form->param('url_ko');
+$serveur        = $form->param('serveur');
+$test           = $form->param('test');
+
+if ($test == 1)
+{
+    if ($serveur == 1)
+    {
+	$lserversec = "https://www.creditmutuel.fr/telepaiement/test/paiement.cgi";
+    }
+    else
+    {
+	$lserversec = "https://ssl.paiement.cic-banques.fr/test/paiement.cgi";
+    }
+}
+else
+{
+    if ($serveur == 1)
+    {
+	$lserversec = "https://www.creditmutuel.fr/telepaiement/paiement.cgi";
+    }
+    else
+    {
+	$lserversec = "https://ssl.paiement.cic-banques.fr/paiement.cgi";
+    }
+}
+
+# Inserer ici la procedure de recuperation du montant (lecture dans une base de donnees)
+
+    print   $form->header(-type => 'text/html');
+
+print <<TEXTE1;
+<html>
+<head>
+<title>Paiement Sécurisé KWO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+INPUT {background-color: #666666; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pts; font-weight: bold; color: #FFFFFF}
+TEXTAREA  {background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pts; color: #000000}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td align="center" valign="middle"> 
+      <table width="400" border="1" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center" valign="middle" bordercolor="#333333">
+            <table width="400" border="0" cellspacing="1" cellpadding="1">
+              <tr> 
+                <td align="center"><img src="pictures/bandeau_haut.gif" width="393" height="73"></td>
+              </tr>
+              <tr> 
+                <td align="center">
+<table width="90%" border="0" cellspacing="0" cellpadding="0"><tr><td align="center">
+<br> 
+<font face="Verdana, Arial, Helvetica, sans-serif" color="#666666" size="2"><b>
+Vous allez entrer dans une zone de paiement s&eacute;curis&eacute; 
+sur les serveurs bancaires du Cr&eacute;dit Mutuel et du CIC.</b></font><br>
+<br>
+<br>
+</td></tr></table>
+                </td>
+              </tr>
+              <tr> 
+                <td align="center"> 
+                  <form name="form1" method="post" action="">
+                    <textarea name="textfield" cols="40" rows="7">La Solution Cybermut - Paiement CIC
+
+Conscient que la sécurisation de vos paiements sur des boutiques en ligne, constitue une préoccupation majeure pour vous, les banques du Groupe CIC et le Crédit Mutuel commercialisent depuis plusieurs années le produit Cybermut - Paiement CIC qui permet d'accepter, en toute sécurité, les paiements par carte bancaire.
+
+Son fonctionnement est extrêmement simple et ne nécessite aucun logiciel supplémentaire sur votre micro-ordinateur autre que votre navigateur internet.
+
+Vous êtes par ailleurs assuré d'être en présence d'un commerçant agréé par une banque du Groupe CIC ou par le Crédit Mutuel puisque le commerçant utilisant la solution doit disposer d'un certificat délivré par nos soins.
+
+ 
+
+ Principe de fonctionnement :
+
+Vous préparez votre commande sur le site de commerce électronique du commerçant.
+
+Lorsque votre caddie est rempli et que vous avez saisi vos coordonnées pour la livraison des produits choisis, vous choisissez le mode de paiement par Carte Bancaire. Vous êtes alors dirigé vers notre serveur de télépaiement qui va assurer la transaction en toute sécurité et en toute discrétion vis à vis du site du commerçant.
+
+Vous renseignez un formulaire avec votre numéro de carte bancaire et sa date d'expiration puis vous validez la transaction. Les informations que vous saisissez sont bien sûr cryptées au moyen du protocole SSL avant d'être envoyées sur notre serveur. Notre serveur de télépaiement déclenche alors une demande d'autorisation afin de vérifier la validité de la carte bancaire. Si l'autorisation est délivrée, la transaction est réalisée.
+
+Vous serez débité immédiatement ou à la fin du mois en fonction du type de carte bancaire que vous utilisez.
+
+ 
+
+ Eléments de sécurité apportés par la solution Cybermut - Paiement CIC :
+
+En tant que client, vous n'avez pas à saisir le code confidentiel de votre carte bancaire qui n'est aucunement transmis sur internet.
+
+Le paiement est sécurisé par cryptage des informations et demande d'autorisation :
+
+
+La confidentialité des données bancaires transitant entre votre micro-ordinateur et les serveurs bancaires est réalisé par le protocole SSL implémenté dans les navigateurs Netscape et Microsoft Internet Explorer. 
+L'intégrité des données échangées et l'authentification du commerçant sont réalisées par le biais d'un certificat spécifique délivré par le CIC ou par le Crédit Mutuel au commerçant. 
+Vous transmettez vos coordonnées bancaires (numéro de carte et date de fin de validité) directement à la banque. Ces informations ne transitent et ne peuvent donc être mémorisées par aucun intermédiaire (commerçant ou prestataire technique). 
+Chaque commerçant utilisant Cybermut - Paiement CIC doit impérativement être client d'une banque du groupe CIC ou du Crédit Mutuel, ce qui représente un gage de confiance pour vous sur internet où vous ne savez peut-être pas toujours à qui vous avez à faire. 
+
+La solution Cybermut - Paiement CIC se charge d'effectuer :
+
+
+la demande d'autorisation auprès de votre banque. 
+le paiement (si l'autorisation est accordée). 
+Vous, client, êtes averti immédiatement du statut du paiement (paiement accordé ou refusé) par l'affichage d'un écran disposant d'un lien hypertexte pour retourner sur le site Internet du commerçant. 
+le système informatique du commerçant est averti en même temps que vous du statut du paiement pour lui permettre de terminer votre commande en cours. 
+
+Alors n'hésitez plus, participez activement à la « net économie » et profitez pleinement des produits proposés dans les boutiques en ligne sécurisées par la solution Cybermut - Paiement CIC !
+</textarea>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+
+TEXTE1
+
+
+CMSSL::CreerFormulaireCM(       $lserversec,
+                                "1.2",
+                                $TPE,
+                                $montant,
+                                $reference,
+                                $texte_libre,
+                                $site,
+                                $url_ok,
+                                $url_ko,
+                                $langue,
+                                $societe,
+                                "Paiement par carte bancaire" );
+
+print <<TEXTE2;
+                </td>
+              </tr>
+              <tr> 
+                <td align="center"><img src="pictures/bandeau_kwo.gif" width="393" height="58"></td>
+              </tr>
+              <tr> 
+                <td><img src="pictures/cic.gif" width="212" height="81" align="left"><img src="pictures/credit_mutuel.gif" width="186" height="74"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+
+
+TEXTE2
+
+

@@ -1,0 +1,12 @@
+ RewriteEngine on
+        RewriteRule /(.*)__(.*).html                 /index.dyn.php3?p_idref=$2
+        RewriteRule /extern/listpages(.*).html       /extern/listpages.php3
+        RewriteRule /wap/wap__(.*).wml               /extern/wap.wml?p_idref=$1
+        RewriteRule /wap                             /extern/wap.wml
+        RewriteRule /extern/board__(.*)__(.*).(.*)   /extern/board.php3?p_format=$1&p_idboard=$2
+
+        ErrorDocument 500 /extern/error.php3?p_code=500
+        ErrorDocument 404 /extern__/error.php3?p_code=404
+        ErrorDocument 401 /extern/error.php3?p_code=401
+        ErrorDocument 403 /extern/error.php3?p_code=403
+        ErrorLog /var/web/travelsante/www/logs/error_log

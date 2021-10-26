@@ -1,0 +1,70 @@
+/*----------------------- MAIN ---------------------------*/
+
+BODY
+{BACKGROUND-COLOR: white; COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.body
+{BACKGROUND-COLOR: white; COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.main
+{BACKGROUND-COLOR: white; COLOR: #000080; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+.copyright
+{COLOR: #FF5F00; FONT-FAMILY: Arial; FONT-SIZE: 10px}
+
+/*----------------------- END MAIN ---------------------------*/
+
+H1
+{COLOR: #FF9F00; FONT-FAMILY: verdana; FONT-SIZE: 16px; FONT-WEIGHT: bold;}
+
+.prodname
+{COLOR: #FF9F00; FONT-FAMILY: verdana; FONT-SIZE: 12px; FONT-WEIGHT: bold;}
+
+.descript
+{BACKGROUND-COLOR: #F6F6F6; COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 10px;}
+
+/*----------------------- SPECIFIC ---------------------------*/
+
+
+
+/*----------------------- END SPECIFIC ---------------------------*/
+
+
+
+/*----------------------- MODULES ---------------------------*/
+
+
+/*----------------------- END MODULES ---------------------------*/
+
+
+
+/*----------------------- LINK ---------------------------*/
+
+A
+{COLOR: #000080; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:hover
+{COLOR: #000080; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A:visited
+{COLOR: #000080; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A:active
+{COLOR: #000080; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+
+A.link
+{COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A.link:hover
+{COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+A.link:visited
+{COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none;}
+A.link:active
+{COLOR: black; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: underline;}
+
+A.whitelink
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
+A.whitelink:hover
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
+A.whitelink:visited
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
+A.whitelink:active
+{COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 10px; TEXT-DECORATION: none; FONT-WEIGHT: bold;}
+
+/*----------------------- END LINK ---------------------------*/

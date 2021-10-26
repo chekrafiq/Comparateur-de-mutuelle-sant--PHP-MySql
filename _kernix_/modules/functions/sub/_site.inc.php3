@@ -1,0 +1,14 @@
+<?php
+include("$g_functionspath/check.inc.php3");
+include("$g_functionspath/convert.inc.php3");
+include("$g_functionspath/date.inc.php3");
+include("$g_functionspath/path.inc.php3");
+include("$g_functionspath/data.inc.php3");
+include("$g_functionspath/display.inc.php3");
+include("$g_functionspath/build_list.inc.php3");
+include("$g_functionspath/ref.inc.php3");
+include("$g_functionspath/ref.dyn.inc.php3");
+include("$g_functionspath/popup.inc.php3");
+include("$g_functionspath/session.inc.php3");
+include("$g_functionspath/msg.inc.php3");
+?>

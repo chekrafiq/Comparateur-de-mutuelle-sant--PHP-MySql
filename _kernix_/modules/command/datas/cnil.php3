@@ -1,0 +1,3 @@
+Par notre intermédiaire, vous pouvez être amené à recevoir des propositions d'autres entreprises. Si vous ne le souhaitez pas, il vous suffit de nous écrire à contact@alapage.com en indiquant vos nom, prénom, adresse et éventuellement votre numéro client.
+
+Vous disposez d'un droit d'accès, de rectification, de modification et de suppression des données qui vous concernent (Art. 34 de la loi Informatique et Liberté du 6 janvier 1978). Pour l'exercer, adressez vous à alapage.com, immeuble Paryseine, 3 allée de la Seine, 94854 Ivry sur Seine cedex. 

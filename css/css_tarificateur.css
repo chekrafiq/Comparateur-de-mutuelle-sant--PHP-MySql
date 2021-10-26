@@ -1,0 +1,223 @@
+﻿#box * ,.grille *,div.left *{
+	border-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.classh1 {
+	background-position: right bottom;
+	color: #fc0019;
+	font-family: "times New Roman", Times, serif;
+	margin-top: 15px;
+	padding-left: 15px;
+	background-image: url('../images/upf.jpg');
+	background-repeat: no-repeat;
+	height: 33px;
+	margin-bottom: 10px;
+	width: auto;
+}
+.classh1up {
+	background-position: right bottom;
+	margin-top: 10px;
+	padding-left: 15px;
+	background-image: url('../images/dwf.gif');
+	background-repeat: no-repeat;
+	height: 20px;
+	margin-bottom: 15px;
+	width:auto;
+}
+.grille {
+	overflow: auto;
+	width: auto;
+	float: left;
+	padding-right: 5px;
+	padding-top:10px;
+	height: 655px;
+
+}
+.grille div.boxprix {
+	border: 1px solid #e8e8e8;
+	height: 490px;
+	width: 138px;
+	float: left;
+	margin-right: 2px;
+	margin-bottom: 10px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+.grille div.boxprix:hover {
+	border: 1px solid #FD1900;
+	}
+.grille div h6 {
+	padding: 5px;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	font-family: "times New Roman", Times, serif;
+	font-size: 14px;
+	background-color: #f3f3f3;
+	line-height: 14px;
+	text-align: center;
+	color: #666666;
+	text-transform: capitalize;
+}
+.grille div h6.doth {
+	padding: 0px;
+	margin: 0px;
+	font-family: "times New Roman", Times, serif;
+	font-size: 14px;
+	background-color: #fff;
+	line-height: normal;
+	font-weight: normal;
+}
+.grille div h3 {
+	text-align: center;
+}
+.grille div h3 a img {
+	border-style: none;
+	border-width: none;
+}
+.grille div h4 {
+	text-align: center;
+	color: #6b6b6b;
+	font-size: 12px;
+	font-family: verdana, Geneva, Tahoma, sans-serif;
+}
+.grille div h5 {
+	text-align: center;
+	color: #000000;
+	margin-bottom: 4px;
+	font-family: georgia, "Times New Roman", Times, serif;
+	font-size: 12px;
+}
+.grille div h2.buy {
+	text-align: center;
+	color: #287dc7;
+	margin-bottom: 8px;
+	font-family: georgia, "Times New Roman", Times, serif;
+	font-size: 22px;
+	font-weight: bold;
+}
+.grille div h2 {
+	text-align: center;
+	color: #e30d0d;
+	margin-bottom: 15px;
+	font-size: 24px;
+}
+.grille div h5 input {
+	padding: 0px;
+	border-style: none !important;
+	width: 134px;
+	height: 33px;
+	font-family: verdana, Geneva, Tahoma, sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 33px;
+	cursor: pointer;
+	background-repeat: repeat-x;
+	border: 0px;
+}
+.grille div.boxprix h5 a {
+	width: 134px;
+	height: 33px;
+	font-family: verdana, Geneva, Tahoma, sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 33px;
+	background-repeat: repeat-x;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-decoration: none;
+}
+
+.grille div h5 input:hover,.grille div.boxprix h5 a:hover {
+	-webkit-box-shadow: 1px 1px 3px #696969;
+	-moz-box-shadow: 1px 1px 3px #696969;
+	box-shadow: 1px 1px 3px #696969;
+}
+.grille div h5 input.tableaux,.grille div.boxprix h5 a.tableaux {
+	background-image: url('../images/btn_tableaux.gif');
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.grille div h5 input.tableaux:hover,.grille div.boxprix h5 a.tableaux:hover {
+	color: #FFDD55;
+}
+
+.grille div h5 input.autre,.grille div.boxprix h5 a.autre {
+	background-image: url('../images/btn_souscrire.gif');
+	color: #000000;
+	font-weight: bolder;
+	font-size: 12px;
+}
+#Contenair {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#Contenair h1 {
+	color: #fc0019;
+	font-family: "times New Roman", Times, serif;
+	font-size: 24px;
+	margin-top: 15px;
+	padding-left: 15px;
+}
+div.left {
+	height: auto;
+	width: 161px;
+	float: right;
+	margin-right: 15px;
+}
+div.left div.box h3 {
+	padding-bottom: 10px;
+	color: #FB0019;
+	text-align: center;
+	font-family: "times New Roman", Times, serif;
+	font-size: 18px;
+}
+
+div.left div.box {
+	border-radius: 7px;
+	border: 1px solid #e4e4e4;
+	height: auto;
+	width: auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+div.left div.box p {
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+padding-left:5px;padding-right:5px;
+	
+}
+div.left div.box  select {
+	border: 1px solid #e4e4e4;
+	padding: 3px 5px 3px 5px;
+	width: 85%;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+/*////////////////////////////////////////////////////////////////*/
+/*//////// page comparateur //////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////*/
+.grille div h2.buy span {
+	color:red;
+	font-size:16px;
+}
+.cls-h-50px 
+{
+	height:50px;
+}
+.cls-p-b-0px {
+	
+	padding-bottom:0px;
+}
